@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --primeira-color: #9b52bb ;
+  --segunda-color: #fcfbef ;
+  --terceira-color:#141f2b ;
+  --quarta-color:#6d6b7b ;
+  --quinta-color:#b6bfc2 ;
+  --branco: #ffffff ;
+  --test-color: #ff0000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 60%;
+  overflow-x: hidden;
+}
+
+/* Barra de navegação */
+
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 12% 1rem;
+  background: var(--branco);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+}
+
+/* Logo Site */
+
+.logo img {
+  width: 110px;
+  height: 110px;
+  cursor: default;
+}
+
+.logo:hover img {
+  transform: scale(1.1);
+}
+
+/* Barra de navegação */
+
+.navbar a {
+  font-size: 1.6rem;
+  color: var(--terceira-color);
+  margin: 2rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+  border-bottom: 3px solid var(--terceira-color);
+  text-transform: capitalize;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: var(--primeira-color);
+  border-bottom: 3px solid var(--primeira-color);
+}
+
+.navbar-nav .navbar-item {
+  display: inline;
+  margin-right: 1rem;
+}
+
+.navbar-collapse {
+  display: none;
+}
+
+.navbar-collapse.show {
+  display: block;
+}
+
+.navbar-toggler {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background-color: var(--terceira-color);
+  border-radius: 1.5rem;
+  font-size: 1.6rem;
+  color: var(--terceira-color);
+  border: 2px solid transparent;
+  letter-spacing: 0.1rem;
+  font-size: 600;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Logado */
+
+.bemVindo {
+  font-weight: 1000;
+}
+
+.bemVindo u {
+  color: var(--primeira-color);
+}
+
+.bemVindo p {
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--terceira-color);
+}
+
+.buttonSair {
+  display: flex;
+}
+
+.btnSair {
+  background-color: var(--terceira-color);
+  padding: 1rem;
+  border-radius: 5px;
+  letter-spacing: 1.5px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--segunda-color);
+}
+
+.btnSair:hover {
+  transform: scale(1.05);
+}
+
+/* Estilo do formulário */
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+form {
+  max-width: 600px;
+  margin: 20px auto; 
+  padding: 20px;
+  background-color: #fff; /* Cor de fundo branca */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para profundidade */
+}
+
+form label {
+  display: block; /* Cada rótulo ocupa uma linha */
+  margin-bottom: 5px; 
+  font-weight: bold; 
+  color: #495057; 
+}
+
+form input[type="text"],
+form input[type="number"] {
+  width: 100%; 
+  padding: 10px; 
+  margin-bottom: 15px; 
+  border: 1px solid #ced4da; 
+  border-radius: 5px; /* Bordas arredondadas */
+  box-sizing: border-box; /* Inclui padding e border no total */
+}
+
+form button {
+  background-color: var(--terceira-color); 
+  color: var(--segunda-color); 
+  border: none; 
+  padding: 10px 15px; 
+  border-radius: 5px; 
+  cursor: pointer; /* Cursor em forma de mão ao passar o mouse */
+  font-size: 20px; 
+  transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+form button:hover {
+  background-color: var(--primeira-color); /* Cor de fundo mais escura ao passar o mouse */
+}
+
+form p {
+  text-align: center; 
+  margin: 10px 0; 
+  font-weight: bold; 
+}
+
+form p[style*='color:red'] {
+  color: red; /* Mensagens de erro em vermelho */
+}
+
+form p[style*='color:green'] {
+  color: green; /* Mensagens de sucesso em verde */
+}
+
+.button-voltar {
+  text-align: center; 
+  margin-top: 20px; 
+}
+
+.button-voltar a {
+  display: inline-block; 
+  padding: 10px 20px; 
+  background-color: var(--primeira-color); 
+  color: white; 
+  text-decoration: none; 
+  border-radius: 5px; 
+  transition: background-color 0.3s; 
+}
+
+.button-voltar a:hover {
+  background-color: var(--primeira-color); 
+}

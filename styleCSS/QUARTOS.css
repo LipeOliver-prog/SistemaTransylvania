@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --primeira-color: #9b52bb ;
+  --segunda-color: #fcfbef ;
+  --terceira-color:#141f2b ;
+  --quarta-color:#6d6b7b ;
+  --quinta-color:#b6bfc2 ;
+  --branco: #ffffff ;
+  --test-color: #ff0000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 60%;
+  overflow-x: hidden;
+}
+
+/* Barra de navegação */
+
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 12% 1rem;
+  background: var(--branco);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+}
+
+/* Logo Site */
+
+.logo img {
+  width: 110px;
+  height: 110px;
+  cursor: default;
+}
+
+.logo:hover img {
+  transform: scale(1.1);
+}
+
+/* Barra de navegação */
+
+.navbar a {
+  font-size: 1.6rem;
+  color: var(--terceira-color);
+  margin: 2rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+  border-bottom: 3px solid var(--terceira-color);
+  text-transform: capitalize;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: var(--primeira-color);
+  border-bottom: 3px solid var(--primeira-color);
+}
+
+.navbar-nav .navbar-item {
+  display: inline;
+  margin-right: 1rem;
+}
+
+.navbar-collapse {
+  display: none;
+}
+
+.navbar-collapse.show {
+  display: block;
+}
+
+.navbar-toggler {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background-color: var(--terceira-color);
+  border-radius: 1.5rem;
+  font-size: 1.6rem;
+  color: var(--terceira-color);
+  border: 2px solid transparent;
+  letter-spacing: 0.1rem;
+  font-size: 600;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Logado */
+
+.bemVindo {
+  font-weight: 1000;
+}
+
+.bemVindo u {
+  color: var(--primeira-color);
+}
+
+.bemVindo p {
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--terceira-color);
+}
+
+.buttonSair {
+  display: flex;
+}
+
+.btnSair {
+  background-color: var(--terceira-color);
+  padding: 1rem;
+  border-radius: 5px;
+  letter-spacing: 1.5px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--segunda-color);
+}
+
+.btnSair:hover {
+  transform: scale(1.05);
+}
+
+/* Pesquisa */
+
+.search1 {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.btn3 {
+  background-color: var(--terceira-color); /* Cor de fundo */
+  color: var(--segunda-color); /* Cor do texto */
+  padding: 10px 15px; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+  transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+.btn3:hover {
+  background-color: var(--primeira-color); /* Cor de fundo ao passar o mouse */
+}
+
+.search-field {
+  padding: 10px; /* Espaçamento interno */
+  border: 1px solid var(--quinta-color); /* Borda */
+  border-radius: 5px; /* Bordas arredondadas */
+  width: 70%; /* Largura do campo de pesquisa */
+  margin-right: 10px; /* Espaço à direita do campo */
+}
+
+/* Tabela */
+
+.table {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-item {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-item thead {
+  background-color: var(--terceira-color);
+  color: var(--segunda-color);
+}
+
+.table-item th {
+  padding: 12px;
+  text-align: left;
+}
+
+.table-item td {
+  padding: 10px;
+  border: 1px solid #dee2e6;
+}
+
+.table-item tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.btn1, .btn2 {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btn1 {
+  background-color: #007bff;
+}
+
+.btn1:hover {
+  background-color: #0056b3;
+}
+
+.btn2 {
+  background-color: #dc3545;
+}
+
+.btn2:hover {
+  background-color: #c82333;
+}
+
+.btn1 svg, .btn2 svg {
+  vertical-align: middle;
+  margin-right: 5px;
+}
