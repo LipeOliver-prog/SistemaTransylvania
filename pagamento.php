@@ -21,8 +21,6 @@ if (!empty($_GET['search'])) {
 }
 $result = $conexao->query($sql); // Executa a consulta no banco
 
-include_once('conexao_dtb/config.php'); // Conexão chamada novamente (desnecessária aqui)
-
 //  Busca de cliente pelo ID (quando usuário insere ID manualmente)
 if (isset($_POST['buscar_cliente'])) {
     $id_busca = $_POST['id_busca'];
@@ -50,10 +48,12 @@ if (isset($_POST['gerar_boleto'])) {
 
     $nosso_numero = $_POST['nosso_numero']; // Identificador do boleto
     $codigo_banco = $_POST['codigo_banco']; // Código do banco emissor
+    $codigo_da_agencia = $_POST['codigo_da_agencia']; //Código da agencia
+    $conta_cartao = $_POST ['conta_cartao']; // Conta do cartão
 
     //  Insere os dados do boleto na tabela 'boletos' no banco de dados
-    $query_inserir = "INSERT INTO boletos (nome_cliente, cpf_cliente, vencimento, valor, nosso_numero, codigo_banco) 
-                      VALUES ('$nome_cliente', '$cpf_cliente', '$vencimento', '$valor_total', '$nosso_numero', '$codigo_banco')";
+    $query_inserir = "INSERT INTO boletos (nome_cliente, cpf_cliente, vencimento, valor, nosso_numero, codigo_banco, codigo_da_agencia, codigo_cartao) 
+                      VALUES ('$nome_cliente', '$cpf_cliente', '$vencimento', '$valor_total', '$nosso_numero', '$codigo_banco', '$codigo_da_agencia', '$conta_cartao')";
 
     if ($conexao->query($query_inserir) === TRUE) {
         echo "Boleto gerado e inserido com sucesso na tabela!";
@@ -75,21 +75,23 @@ if (isset($_POST['gerar_boleto'])) {
     echo "<tr><td><strong>Valor Total</strong></td><td>$valor_formatado</td></tr>";
     echo "<tr><td><strong>Nosso Número</strong></td><td>$nosso_numero</td></tr>";
     echo "<tr><td><strong>Código do Banco</strong></td><td>$codigo_banco</td></tr>";
+    echo "<tr><td><strong>Código do Banco</strong></td><td>$codigo_da_agencia</td></tr>";
+    echo "<tr><td><strong>Código do Banco</strong></td><td>$conta_cartao</td></tr>";
     echo "</table>";
 
-    //  Simula um boleto bancário para exibição na tela
-    echo "<h3>Visualização do Boleto</h3>";
-    echo "<div style='border: 1px solid #000; padding: 20px; width: 600px; margin-top: 20px;'>";
-    echo "<h4>Banco: $codigo_banco</h4>";
-    echo "<p><strong>Nosso Número: </strong>$nosso_numero</p>";
-    echo "<p><strong>Cliente: </strong>$nome_cliente</p>";
-    echo "<p><strong>CPF: </strong>$cpf_cliente</p>";
-    echo "<p><strong>Vencimento: </strong>$vencimento</p>";
-    echo "<p><strong>Valor Frigobar: </strong>  $valor_frigobar</p>";
-    echo "<p><strong>Valor Total: </strong>$valor_formatado</p>";
-    echo "<p><strong>Codigo de barras: </strong>[CODIGO DE BARRAS SIMULADO]</p>";
-    echo "<p><strong>Instruções: </strong>Após o pagamento, aguarde confirmação.</p>";
-    echo "</div>";
+    // Exibe o boleto
+echo "<h3>Visualização do Boleto</h3>";
+echo "<div style='border: 1px solid #000; padding: 20px; width: 600px; margin-top: 20px;'>";
+echo "<h4>Banco: " . htmlspecialchars($codigo_banco) . "</h4>";
+echo "<p><strong>Nosso Número: </strong>" . htmlspecialchars($nosso_numero) . "</p>";
+echo "<p><strong>Cliente: </strong>" . htmlspecialchars($nome_cliente) . "</p>";
+echo "<p><strong>CPF: </strong>" . htmlspecialchars($cpf_cliente) . "</p>";
+echo "<p><strong>Vencimento: </strong>" . htmlspecialchars($vencimento) . "</p>";
+echo "<p><strong>Valor Frigobar: </strong> R$ " . htmlspecialchars($valor_frigobar_formatado) . "</p>";
+echo "<p><strong>Valor Total: </strong> R$ " . htmlspecialchars($valor_formatado) . "</p>";
+echo "<p><strong>Código de barras: </strong>[CODIGO DE BARRAS SIMULADO]</p>";
+echo "<p><strong>Instruções: </strong>Após o pagamento, aguarde confirmação.</p>";
+echo "</div>";
 }
 ?>
 
@@ -170,6 +172,12 @@ if (isset($_POST['gerar_boleto'])) {
 
         <label for="codigo_banco">Código do Banco:</label>
         <input type="text" name="codigo_banco" id="codigo_banco" required autocomplete="off"><br><br>
+
+        <label for="codigo_banco">Código da Agência:</label>
+        <input type="text" name="codigo_banco" id="codigo_da_agencia" required autocomplete="off"><br><br>
+
+        <label for="codigo_banco">Código da Conta:</label>
+        <input type="text" name="codigo_banco" id="codigo_cartao" required autocomplete="off"><br><br>
 
         <button type="submit" name="gerar_boleto">Gerar Boleto</button>
 
