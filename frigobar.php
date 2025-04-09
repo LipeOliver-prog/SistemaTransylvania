@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['salvar_frigobar'])) {
     <header class="header">
         <!-- Logo do site com link para a página inicial -->
         <a href="Home.php" class="logo">
-            <img src="img/logoSite.png" alt="logo">
+            <img src="img/brasaoHT.png" alt="logo">
         </a>
 
         <!-- Barra de navegação -->

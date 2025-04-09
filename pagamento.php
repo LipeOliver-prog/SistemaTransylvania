@@ -112,7 +112,7 @@ echo "</div>";
 <body>
     <header class="header">
         <a href="Home.php" class="logo">
-            <img src="img/logoSite.png" alt="logo">
+            <img src="img/brasaoHT.png" alt="logo">
         </a>
 
         <nav class="navbar">
