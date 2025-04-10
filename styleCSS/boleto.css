@@ -1,0 +1,22 @@
+
+    /* styleCSS/PAGAMENTOS.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+  }
+  
+  /* Se preferir centralizar apenas o conteúdo do boleto, encapsule-o em um container */
+  .container-boleto {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #000;
+    width: 600px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
