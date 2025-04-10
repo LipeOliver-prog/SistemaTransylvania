@@ -12,7 +12,7 @@
 
 <body>
     <div class="tela-login">
-        <!-- <img class="logoLogin" src="img/logoSite.png" alt="logo"> -->
+      
         <img class="logoLogin" src="img/brasaoHT.png" alt="logo">
 
         <h1> Login</h1>
