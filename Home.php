@@ -30,8 +30,10 @@ $result = $conexao->query($sql);
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styleCSS/HOME.css">
+   
 
 </head>
+
 
 <body>
     <header class="header">
@@ -102,77 +104,13 @@ $result = $conexao->query($sql);
             <a href="formularios/formulariocliente.php" class="boxCadastro">Cadastro Cliente</a>
         </div>
         
+        <?php include 'card.php'; ?>
 
-        <!-- Quartos disponíveis -->
-        <div class="rooms" id="rooms">
-            <div class="room" data-type="luxo" data-beds="2" data-balcony="true">
-                <img src="" alt="">
-                <p>- Quarto de Luxo -</p>
-                <p>- 2 Camas -</p>
-                <p>- Com Sacada -</p>
-            </div>
-            <div class="room" data-type="basico" data-beds="1" data-balcony="false">
-                <img src="" alt="">
-                <p>- Quarto Básico -</p>
-                <p>- 1 cama -</p>
-                <p>- Sem Sacada -</p>
-            </div>
-            <div class="room" data-type="luxo" data-beds="3" data-balcony="true">
-                <img src="" alt="">
-                <p>- Quarto de Luxo -</p>
-                <p>- 3 Camas -</p>
-                <p>- Com Sacada -</p>
-            </div>
-            <div class="room" data-type="basico" data-beds="2" data-balcony="false">
-                <img src="" alt="">
-                <p>- Quarto Básico -</p>
-                <p>- 2 Camas -</p>
-                <p>- Sem Sacada -</p>
-            </div>
-            <div class="room" data-type="luxo" data-beds="1" data-balcony="false">
-                <img src="" alt="">
-                <p>- Quarto de Luxo -</p>
-                <p>- 1 cama -</p>
-                <p>- Com Sacada-</p>
-            </div>
-        </div>
 
+
+       
     </section>
 
-    <script>
-        function filterRooms() {
-            const roomType = document.getElementById('roomType').value;
-            const beds = document.getElementById('beds').value;
-            const balcony = document.getElementById('balcony').value;
-
-            const rooms = document.querySelectorAll('.room');
-            rooms.forEach(room => {
-                const matchesType = roomType === 'all' || room.dataset.type === roomType;
-                const matchesBeds = beds === 'all' || room.dataset.beds === beds;
-                const matchesBalcony = balcony === 'all' || room.dataset.balcony === balcony;
-
-                if (matchesType && matchesBeds && matchesBalcony) {
-                    room.style.display = 'block';
-                } else {
-                    room.style.display = 'none';
-                }
-            });
-        }
-
-        function confirmReservation() {
-            const name = document.getElementById('name').value;
-            const rg = document.getElementById('rg').value;
-            const nights = document.getElementById('nights').value;
-
-            document.getElementById('reservationMessage').textContent =
-                "Reserva aprovada para $ { name } (RG: $ { rg }) para $ { nights } noite(s).Aproveite sua estadia!";
-
-            document.getElementById('confirmation').style.display = 'block';
-            document.getElementById('reservationForm').reset();
-
-            return false;
-        }
-    </script>
 </body>
 
 </html>
