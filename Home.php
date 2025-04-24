@@ -69,7 +69,7 @@ $result = $conexao->query($sql);
         
         <!-- Filtro para os quartos -->
         <div class="filter">
-            <h2>Filtrar Quartos</h2>
+            <h1>Filtrar Quartos</h1>
             <div class="Type">
                 <label>Tipo de Quarto:</label>
                 <select id="roomType">
@@ -105,6 +105,7 @@ $result = $conexao->query($sql);
         </div>
         
         <?php include 'card.php'; ?>
+
 
 
 

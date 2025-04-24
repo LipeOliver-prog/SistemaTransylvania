@@ -12,18 +12,20 @@ body {
 /* Container para alinhar os cards */
 .card-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  flex-direction: row; /* Alinha os cards lado a lado */
+  justify-content: center; /* Centraliza os cards horizontalmente */
+  align-items: center; /* Centraliza os cards verticalmente */
+  gap: 20px; /* Espaçamento entre os cards */
   padding: 20px;
 }
 
-/* Card isolado */
+/* Alterar a cor do card */
 .wrapper {
+  background-color: #ff0000; /* Nova cor para o card */
   width: 300px;
   height: 400px;
   border-radius: 10px;
-  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px 0 rgba(255, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
 }
