@@ -21,17 +21,37 @@ if (!empty($_GET['search'])) {
 $result = $conexao->query($sql); // Executa a consulta no banco
 
 // Busca de cliente pelo ID (quando usuário insere ID manualmente)
+// Busca de cliente pelo ID (quando usuário insere ID manualmente)
 if (isset($_POST['buscar_cliente'])) {
     $id_busca = $_POST['id_busca'];
+
+    // 1) busca os dados do cliente
     $query = "SELECT * FROM clientes WHERE id = '$id_busca'";
     $result = $conexao->query($query);
 
     if ($result->num_rows > 0) {
-        $cliente = $result->fetch_assoc(); // Obtém os dados do cliente encontrado
+        $cliente = $result->fetch_assoc();
+
+        // 2) busca o valor total do frigobar para esse cliente
+        $sql2 = "
+          SELECT 
+            MAX(valor_total) AS valor_frigobar 
+          FROM frigobar 
+          WHERE id_cliente = '$id_busca'
+        ";
+        $res2 = $conexao->query($sql2);
+        if ($res2 && $res2->num_rows > 0) {
+            $row2 = $res2->fetch_assoc();
+            $valor_frigobar = $row2['valor_frigobar'];
+        } else {
+            $valor_frigobar = 0;
+        }
+
     } else {
-        $erro = "Cliente não encontrado!"; // Retorna mensagem de erro
+        $erro = "Cliente não encontrado!";
     }
 }
+
 
 // Geração de boletos
 if (isset($_POST['gerar_boleto'])) {
@@ -134,7 +154,24 @@ if (isset($_POST['gerar_boleto'])) {
         <input type="text" name="valor" id="valor" required autocomplete="off"><br><br>
 
         <label for="valor_frigobar">Valor do Frigobar:</label>
-        <input type="text" name="valor_frigobar" id="valor_frigobar" required autocomplete="off"><br><br>
+
+        <!-- Display formatado, somente leitura -->
+        <label for="valor_frigobar_display">Valor do Frigobar:</label>
+        <input 
+        type="text" 
+        id="valor_frigobar_display" 
+        value="<?= isset($valor_frigobar) 
+          ? 'R$ ' . number_format($valor_frigobar, 2, ',', '.')     : '' ?>" 
+        readonly
+        ><br><br>
+
+        <!-- Campo oculto que realmente será enviado ao servidor -->
+        <input 
+        type="hidden" 
+        name="valor_frigobar" 
+        value="<?= isset($valor_frigobar) ? $valor_frigobar : 0 ?>"
+        >
+
 
         <label for="nosso_numero">Nosso Número:</label>
         <input type="text" name="nosso_numero" id="nosso_numero" required autocomplete="off"><br><br>
