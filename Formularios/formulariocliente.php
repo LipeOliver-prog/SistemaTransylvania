@@ -14,10 +14,11 @@ if (isset($_POST['submit'])) {
     $sexo = $_POST['genero'];
     $data_nascimento = $_POST['data_nascimento'];
     $endereco = $_POST['endereco'];
+    $especie = $_POST['especie'];
 
 
     // Montagem e Execução da Consulta SQL
-    $result = mysqli_query($conexao, "INSERT INTO clientes(nome, email, cpf,telefone, sexo, data_nascimento, endereco) values('$nome', '$email', '$cpf','$telefone', '$sexo', '$data_nascimento', '$endereco')");
+    $result = mysqli_query($conexao, "INSERT INTO clientes(nome, email, cpf,telefone, sexo, data_nascimento, endereco) values('$nome', '$email', '$cpf','$telefone', '$sexo', '$data_nascimento', '$endereco', '$especie')");
 
     header('Location: ../clientes.php');
 }
@@ -37,9 +38,12 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+
+    <!-- Boão de Volar -->
     <div class="buttonVoltar">
-        <a href="Clientes.php" class="btnVoltar">Voltar</a>
+        <a href="../Clientes.php" class="btnVoltar">Voltar</a>
     </div>
+
     <div class="box">
         <form action="formulariocliente.php" method="POST">
             <fieldset>
@@ -61,6 +65,11 @@ if (isset($_POST['submit'])) {
                 <div class="inputBox">
                     <input type="text" name="cpf" id="cpf" class="inputUser" required autocomplete="off">
                     <label for="cpf" class="labelInput">CPF</label>
+
+                    <div class="inputBox">
+                    <input type="text" name="especie" id="especie" class="inputUser" required autocomplete="off">
+                    <label for="especie" class="labelInput">Espécie</label>
+
                     <br>
                     <br><br>
                     <div class="inputBox">

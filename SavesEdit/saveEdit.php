@@ -14,9 +14,10 @@ if (isset($_POST['update'])) {
     $cidade = $_POST['cidade'];
     $estado = $_POST['estado'];
     $endereco = $_POST['endereco'];
+    $especie = $_POST['especie'];
 
 //Atualiza banco de dados
-    $sqlupdate = "UPDATE funcionarios SET nome='$nome',senha='$senha',email='$email',telefone='$telefone',sexo='$sexo',data_nascimento='$data_nascimento',cidade='$cidade',estado='$estado',endereco='$endereco'
+    $sqlupdate = "UPDATE funcionarios SET nome='$nome',senha='$senha',email='$email',telefone='$telefone',sexo='$sexo',data_nascimento='$data_nascimento',cidade='$cidade',estado='$estado',endereco='$endereco', especie='$especie'
         WHERE   id='$id'";
 
     $result = $conexao->query($sqlupdate);

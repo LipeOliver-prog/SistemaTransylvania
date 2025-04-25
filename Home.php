@@ -31,6 +31,7 @@ $result = $conexao->query($sql);
 
     <link rel="stylesheet" href="styleCSS/HOME.css">
    
+    
 
 </head>
 
@@ -100,9 +101,7 @@ $result = $conexao->query($sql);
         </div>
 
 
-        <div class="buttonCadastro">
-            <a href="formularios/formulariocliente.php" class="boxCadastro">Cadastro Cliente</a>
-        </div>
+        
         
         <?php include 'card.php'; ?>
 
@@ -111,7 +110,10 @@ $result = $conexao->query($sql);
 
        
     </section>
+    
 
 </body>
 
 </html>
+
+

@@ -55,19 +55,24 @@ $result = $conexao->query($sql);
             ?>
         </div>
 
+        <!-- Botão de sair da conta -->
         <div class="buttonSair">
             <a href="sair.php" class="btnSair">Sair</a>
         </div>
+
     </header>
 
     <div class="box-search1">
         
+        <!-- Botão de Cadastro de Cliente -->
         <div class="box">
             <a href="formularios/formulariocliente.php">Cadastro cliente</a>
         </div>
+
         <div class="box">
             <a href="formularios/formularioquartos.php">Cadastro quartos</a>
         </div>
+        
 
 
         <div class="search1">

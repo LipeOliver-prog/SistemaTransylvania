@@ -11,6 +11,7 @@ if (isset($_POST['update'])) //Verifique se o formulário foi enviado
     $quarto = $_POST['quarto'];
     $data_entrada = $_POST['data_entrada'];
     $data_saida = $_POST['data_saida'];
+    $especie = $_POST['especie'];
 
     // Calcula o preço  por noite atualizado
     $preco_por_noite = 0;
@@ -36,7 +37,7 @@ if (isset($_POST['update'])) //Verifique se o formulário foi enviado
     $total_preco = ($dias_estadia > 0) ? $preco_por_noite * $dias_estadia : 0;
 
 //Atualiza banco de dados
-    $sqlUpdate = "UPDATE quartos SET nome='$nome', email='$email', quarto='$quarto', data_entrada='$data_entrada', data_saida='$data_saida', total_preco='$total_preco' WHERE idquartos=$id";
+    $sqlUpdate = "UPDATE quartos SET nome='$nome', email='$email', quarto='$quarto', data_entrada='$data_entrada', data_saida='$data_saida', total_preco='$total_preco', especie='$especie'WHERE idquartos=$id";
 
     if ($conexao->query($sqlUpdate) === TRUE) {
         header('Location: ../quartos.php');

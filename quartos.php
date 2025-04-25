@@ -61,10 +61,13 @@ $result = $conexao->query($sql);
         </div>
     </header>
 
+    
     <div class="box-search1">
         <div class="box">
             <a href="formularios/formularioquartos.php">Cadastro</a>
         </div>
+
+        
         <div class="search1">
 
             <input type="search" class="form-control search-field" placeholder="Pesquisar" id="pesquisar">

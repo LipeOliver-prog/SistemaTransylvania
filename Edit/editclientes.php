@@ -20,6 +20,7 @@ if (!empty($_GET['id'])) {
             $sexo = $user_data['sexo'];
             $data_nascimento = $user_data['data_nascimento'];
             $endereco = $user_data['endereco'];
+            $especie = $user_data['especie'];
         }
     } else {
         header('Location: ../clientes.php');
@@ -65,6 +66,14 @@ if (!empty($_GET['id'])) {
                     <label for="cpf" class="labelInput">CPF</label>
                     <br>
                     <br><br>
+
+                <div class="inputBox">
+                    <input type="text" name="especie" id="especie" class="inputUser" value="<?php echo $especie; ?>" required>
+                    <label for="especie" class="labelInput">Qual Sua Espécie?</label>
+                </div>
+                <br>
+                    <br><br>
+
                     <div class="inputBox">
                         <input type="tel" name="telefone" id="telefone" class="inputUser" value="<?php echo $telefone ?>" required>
                         <label for="telefone" class="labelInput">Telefone</label>

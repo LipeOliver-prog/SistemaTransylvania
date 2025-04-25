@@ -51,8 +51,6 @@ $codigo_barras_fake = "| || ||| ||||| |||| | || ||| | || |||| |||";
         <p><strong>Código de barras: </strong><span style="font-family: monospace;"><?php echo $codigo_barras_fake; ?></span></p>
     </div>
 
-    <div class="button-voltar">
-        <a href="pagamento.php" class="btn-voltar">Voltar</a>
-    </div>
+    
 </body>
 </html>

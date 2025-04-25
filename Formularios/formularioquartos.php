@@ -8,6 +8,7 @@ if (isset($_POST['submit'])) {
     $quarto = $_POST['quarto']; 
     $data_entrada = $_POST['data_entrada'];
     $data_saida = $_POST['data_saida'];
+    $especie = $_POST['especie'];
 
     // Cálculo do preço baseado no quarto e nas datas
     $preco_por_noite = 0;
@@ -46,7 +47,7 @@ if (isset($_POST['submit'])) {
 
     // Insere os dados no banco
     $result = mysqli_query($conexao, "INSERT INTO quartos (quarto, nome, email, data_entrada, data_saida, total_preco) 
-                                      VALUES ('$quarto', '$nome', '$email', '$data_entrada', '$data_saida', '$total_preco')");
+                                      VALUES ('$quarto', '$nome', '$email', '$data_entrada', '$data_saida', '$total_preco', '$especie')");
 
     if ($result) {
         header('Location: ../quartos.php');
@@ -67,6 +68,12 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="../styleCSS/FORMULARIOS.css">
 </head>
 <body>
+
+    <!-- Botão de Voltar -->
+    <div class="buttonVoltar">
+        <a href="../quartos.php" class="btnVoltar">Voltar</a>
+    </div>
+
     <a href="funcionarios.php" style="color: white; text-decoration: none;">Voltar</a>
     <div class="box">
         <form action="formularioquartos.php" method="POST">
@@ -82,6 +89,12 @@ if (isset($_POST['submit'])) {
                     <input type="email" name="email" id="email" class="inputUser" required>
                     <label for="email" class="labelInput">E-mail</label>
                 </div>
+
+                <div class="inputBox">
+                    <input type="text" name="especie" id="especie" class="inputUser" required>
+                    <label for="especie" class="labelInput">Qual Sua Espécie?</label>
+                </div>
+                
 
                 <br>
                 <label for="quarto"><b>Selecione o Quarto:</b></label>

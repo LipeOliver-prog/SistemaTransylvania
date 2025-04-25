@@ -17,6 +17,7 @@ if (!empty($_GET['id'])) {
             $data_entrada = $quarto_data['data_entrada'];
             $data_saida = $quarto_data['data_saida'];
             $total_preco = $quarto_data['total_preco'];
+            $especie = $quarto_data['especie'];
         }
     } else {
         header('Location: ../quartos.php');
@@ -41,18 +42,23 @@ if (!empty($_GET['id'])) {
         <a href="../quartos.php" class="btnVoltar">Voltar</a>
     </div>
     <div class="box">
-        <form action="../SaveEdit/saveEditQuartos.php" method="POST">
+        <form action="../SavesEdit/saveEditQuartos.php" method="POST">
             <fieldset>
                 <legend><b>Editar Quarto</b></legend>
                 <br>
                 <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="inputUser" value="<?php echo $nome; ?>" required>
-                    <label for="nome" class="labelInput">Nome Completo</label>
+                    <label for="nome" class="labelInput">Digite Seu Nome Completo</label>
                 </div>
 
                 <div class="inputBox">
                     <input type="email" name="email" id="email" class="inputUser" value="<?php echo $email; ?>" required>
-                    <label for="email" class="labelInput">E-mail</label>
+                    <label for="email" class="labelInput">Qual Seu E-mail</label>
+                </div>
+
+                <div class="inputBox">
+                    <input type="text" name="especie" id="especie" class="inputUser" value="<?php echo $especie; ?>" required>
+                    <label for="especie" class="labelInput">Qual Sua Espécie?</label>
                 </div>
 
                 <br>

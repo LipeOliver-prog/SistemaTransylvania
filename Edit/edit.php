@@ -23,6 +23,7 @@ if (!empty($_GET['id'])) {
             $estado = $user_data['estado'];
             $endereco = $user_data['endereco'];
             $senha = $user_data['senha'];
+            $especie = $user_data['especie'];
         }
     } else {
         header('Location: ../funcionarios.php');
@@ -71,8 +72,14 @@ if (!empty($_GET['id'])) {
                         <input type="tel" name="telefone" id="telefone" class="inputUser" value="<?php echo $telefone ?>" required>
                         <label for="telefone" class="labelInput">Telefone</label>
 
-                    </div>
 
+                    
+                    </div>
+                    <div class="inputBox">
+                    <input type="text" name="especie" id="especie" class="inputUser" value="<?php echo $especie; ?>" required>
+                    <label for="especie" class="labelInput">Qual Sua Espécie?</label>
+                    </div>
+                    <br>
                     <br>
                     <p>Sexo:</p>
                     <input type="radio" id="feminino" name="sexo" value="feminino" <?php echo ($sexo == 'feminino') ? 'checked' : '' ?> required>
