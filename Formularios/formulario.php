@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
     $especie = $_POST['especie'];
 
 // Montagem e Execução da Consulta SQL
-    $query = "INSERT INTO funcionarios(nome, email, senha, telefone, sexo, data_nascimento, cidade, estado, endereco) 
+    $query = "INSERT INTO funcionarios(nome, email, senha, telefone, sexo, data_nascimento, cidade, estado, endereco,especie) 
               VALUES ('$nome', '$email', '$senha','$telefone', '$sexo', '$data_nascimento', '$cidade', '$estado', '$endereco', '$especie')";
 
 //Execução da Consulta e Tratamento da Resposta

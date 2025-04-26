@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 
 
     // Montagem e Execução da Consulta SQL
-    $result = mysqli_query($conexao, "INSERT INTO clientes(nome, email, cpf,telefone, sexo, data_nascimento, endereco) values('$nome', '$email', '$cpf','$telefone', '$sexo', '$data_nascimento', '$endereco', '$especie')");
+    $result = mysqli_query($conexao, "INSERT INTO clientes(nome, email, cpf,telefone, sexo, data_nascimento, endereco, especie) values('$nome', '$email', '$cpf','$telefone', '$sexo', '$data_nascimento', '$endereco', '$especie')");
 
     header('Location: ../clientes.php');
 }

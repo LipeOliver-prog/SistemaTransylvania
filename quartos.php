@@ -85,12 +85,14 @@ $result = $conexao->query($sql);
             <table class="table-item">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">N</th>
                         <th scope="col">Quarto</th>
                         <th scope="col">Nome do Cliente</th>
                         <th scope="col">Email do Cliente</th>
                         <th scope="col">Total Preço</th> <!-- Nova coluna -->
+                        <th scope="col">Especie</th>
                         <th scope="col">Ações</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -110,6 +112,7 @@ $result = $conexao->query($sql);
                         echo "<td>" . $room_data['nome'] . "</td>"; // Nome do cliente associado
                         echo "<td>" . $room_data['email'] . "</td>"; // Email do cliente associado
                         echo "<th>R$ " . number_format($room_data['total_preco'], 2, ',', '.') . "</th>"; // Total preço formatado
+                        echo "<td>" . $room_data['especie'] . "</td>"; // Email do cliente associado
                         // Coluna de ações com botões estilizados
                         echo "<td>
                         <a class='btn1 btn-sm btn-primary' href='Edit/editquarto.php?id=" . $room_data['idquartos'] . "'> 

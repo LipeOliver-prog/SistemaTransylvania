@@ -51,6 +51,20 @@ if (isset($_POST['buscar_cliente'])) {
         $erro = "Cliente não encontrado!";
     }
 }
+// if (isset($_POST['buscar_cliente'])) {
+//     $id_busca = $_POST['id_busca'];
+
+//     // 1) busca os dados do cliente
+//     $query = "SELECT * FROM clientes WHERE id = '$id_busca'";
+//     $result = $conexao->query($query);
+
+//     if ($result->num_rows > 0) {
+//         $cliente = $result->fetch_assoc();
+
+//     } else {
+//         $erro = "Cliente não encontrado!";
+//     }
+// }
 
 
 // Geração de boletos

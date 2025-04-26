@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
     }
 
     // Insere os dados no banco
-    $result = mysqli_query($conexao, "INSERT INTO quartos (quarto, nome, email, data_entrada, data_saida, total_preco) 
+    $result = mysqli_query($conexao, "INSERT INTO quartos (quarto, nome, email, data_entrada, data_saida, total_preco, especie ) 
                                       VALUES ('$quarto', '$nome', '$email', '$data_entrada', '$data_saida', '$total_preco', '$especie')");
 
     if ($result) {
@@ -56,6 +56,7 @@ if (isset($_POST['submit'])) {
         echo "Erro ao cadastrar os dados: " . mysqli_error($conexao);
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -77,18 +78,24 @@ if (isset($_POST['submit'])) {
     <a href="funcionarios.php" style="color: white; text-decoration: none;">Voltar</a>
     <div class="box">
         <form action="formularioquartos.php" method="POST">
+           
+
+
             <fieldset>
                 <legend><b>Formulário de Quartos</b></legend>
                 <br>
-                <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" required>
-                    <label for="nome" class="labelInput">Nome Completo</label>
-                </div>
+                
+                
 
                 <div class="inputBox">
-                    <input type="email" name="email" id="email" class="inputUser" required>
-                    <label for="email" class="labelInput">E-mail</label>
-                </div>
+                <label for="nome_cliente">Nome do Cliente:</label>
+        <input type="text" name="nome_cliente" id="nome_cliente" value="<?= $cliente['nome'] ?? '' ?>" required><br><br>
+
+        <label for="cpf_cliente">CPF do Cliente:</label>
+        <input type="text" name="cpf_cliente" id="cpf_cliente" value="<?= $cliente['cpf'] ?? '' ?>" required><br><br>
+
+
+             
 
                 <div class="inputBox">
                     <input type="text" name="especie" id="especie" class="inputUser" required>
