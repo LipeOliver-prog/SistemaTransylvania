@@ -39,7 +39,7 @@ if (isset($_POST['buscar_cliente'])) {
           FROM frigobar 
           WHERE id_cliente = '$id_busca'
         ";
-        $res2 = $conexao->query($sql2);
+        $res2 = $conexao->query($sql2); 
         if ($res2 && $res2->num_rows > 0) {
             $row2 = $res2->fetch_assoc();
             $valor_frigobar = $row2['valor_frigobar'];
