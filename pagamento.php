@@ -138,6 +138,7 @@ if (isset($_POST['gerar_boleto'])) {
     <?php if (isset($erro)) {
         echo "<p style='color:red;'>$erro</p>";
     } ?>
+    <!-- teste commit -->
 
     <!-- Formulário do boleto -->
     <form action="" method="POST">
