@@ -1,2 +1,3 @@
-ALTER TABLE hotel_transilvania
-  ADD COLUMN frigobar_valor DECIMAL(10,2) NOT NULL;
+SELECT * FROM `frigobar` WHERE 1
+ ALTER TABLE frigobar ADD valor_total DECIMAL(10,2) NOT NULL DEFAULT 0.00;
+
