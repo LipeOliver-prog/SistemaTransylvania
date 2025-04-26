@@ -1,0 +1,3 @@
+SELECT * FROM `frigobar` WHERE 1
+ ALTER TABLE frigobar ADD valor_total DECIMAL(10,2) NOT NULL DEFAULT 0.00;
+

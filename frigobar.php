@@ -97,8 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['salvar_frigobar'])) {
             $resumo .= "$item: $quantity unidades (R$ " . number_format($valor, 2, ',', '.') . ")<br>";  // Adiciona o resumo do item
 
             // Insere os dados dos itens no banco de dados
-            $query_inserir = "INSERT INTO frigobar (id_cliente, nome_cliente, cpf_cliente, item, quantidade, valor)
-                              VALUES ('$id_cliente', '$nome_cliente', '$cpf_cliente', '$item', '$quantity', '$valor')";
+            $query_inserir = "INSERT INTO frigobar (id_cliente, nome_cliente, cpf_cliente, item, quantidade, valor,valor_total)
+                              VALUES ('$id_cliente', '$nome_cliente', '$cpf_cliente', '$item', '$quantity', '$valor', '$valor_total')";
             $conexao->query($query_inserir);  // Executa a inserção no banco
         }
     }
