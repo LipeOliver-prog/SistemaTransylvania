@@ -89,17 +89,22 @@ $result = $conexao->query($sql);
             <table class="table-item">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nome</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome do Funcionários</th>
                         <th scope="col">Email</th>
                         <th scope="col">Senha</th>
                         <th scope="col">Telefone</th>
                         <th scope="col">sexo</th>
                         <th scope="col">Data de Nascimento</th>
-                        <th scope="col">Cidade</th>
                         <th scope="col">Estado</th>
+<<<<<<< Updated upstream
                         <th scope="col">Endereço</th>
                         <th scope="col">...</th>
+=======
+                        <th scope="col">Cidade</th>
+                        <th scope="col">Endereço</th> 
+                        <th scope="col">Ações</th>
+>>>>>>> Stashed changes
                     </tr>
                 </thead>
 
@@ -115,8 +120,8 @@ $result = $conexao->query($sql);
                         echo "<td>" . $user_data['telefone'] . "</td>";
                         echo "<td>" . $user_data['sexo'] . "</td>";
                         echo "<td>" . $user_data['data_nascimento'] . "</td>";
-                        echo "<td>" . $user_data['cidade'] . "</td>";
                         echo "<td>" . $user_data['estado'] . "</td>";
+                        echo "<td>" . $user_data['cidade'] . "</td>";
                         echo "<td>" . $user_data['endereco'] . "</td>";
                         echo "<td>
                             <a class='btn1 btn-sm btn-primary' href='Edit/edit.php?id=$user_data[id]'>

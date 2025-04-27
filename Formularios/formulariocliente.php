@@ -1,11 +1,12 @@
-<?php
+    <?php
 
-if (isset($_POST['submit'])) {
+    if (isset($_POST['submit'])) {
 
+        
     
-   
-    include_once('../conexao_dtb/config.php');
+        include_once('../conexao_dtb/config.php');
 
+<<<<<<< Updated upstream
     //Coleta dos Dados do Formulário
     $nome = $_POST['nome'];
     $email = $_POST['email'];
@@ -18,24 +19,41 @@ if (isset($_POST['submit'])) {
 
     // Montagem e Execução da Consulta SQL
     $result = mysqli_query($conexao, "INSERT INTO clientes(nome, email, cpf,telefone, sexo, data_nascimento, endereco) values('$nome', '$email', '$cpf','$telefone', '$sexo', '$data_nascimento', '$endereco')");
+=======
+        //Coleta dos Dados do Formulário
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $cpf = $_POST['cpf'];
+        $telefone = $_POST['telefone'];
+        $sexo = $_POST['genero'];
+        $data_nascimento = $_POST['data_nascimento'];
+        $endereco = $_POST['endereco'];
+        $especie = $_POST['especie'];
 
-    header('Location: ../clientes.php');
-}
-?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
+        // Montagem e Execução da Consulta SQL
+        $result = mysqli_query($conexao, "INSERT INTO clientes(nome, email, cpf,telefone, sexo, data_nascimento, endereco, especie) values('$nome', '$email', '$cpf','$telefone', '$sexo', '$data_nascimento', '$endereco', '$especie')");
+>>>>>>> Stashed changes
 
-<head>
+        header('Location: ../clientes.php');
+    }
+    ?>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!DOCTYPE html>
+    <html lang="pt-br">
 
-    <title>Formulário | Clientes </title>
+    <!-- Aba de Navegação do explorer -->
+    <head>
 
-    <link rel="stylesheet" href="../styleCSS/FORMULARIOS.css">
-</head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <title>Formulário | Clientes </title>
+
+        <link rel="stylesheet" href="../styleCSS/FORMULARIOS.css">
+    </head>
+
+<<<<<<< Updated upstream
 <body>
     <div class="buttonVoltar">
         <a href="Clientes.php" class="btnVoltar">Voltar</a>
@@ -67,39 +85,93 @@ if (isset($_POST['submit'])) {
                         <input type="tel" name="telefone" id="telefone" class="inputUser" required autocomplete="off">
                         <label for="telefone" class="labelInput">Telefone</label>
 
-                    </div>
+=======
+    <body>
 
-                    <br>
-                    <p>Sexo:</p>
-                    <input type="radio" id="feminino" name="genero" value="feminino" required>
-                    <label for="feminino">Feminino</label>
-                    <br>
-                    <input type="radio" id="masculino" name="genero" value="masculino" required>
-                    <label for="masculino">Masculino</label>
-                    <br>
-                    <input type="radio" id="outros" name="genero" value="outros" required>
-                    <label for="outros">Outros</label>
-                    <br><br>
+        <!-- Boão de Volar -->
+        <div class="buttonVoltar">
+            <a href="../Clientes.php" class="btnVoltar">Voltar</a>
+        </div>
 
-                    <label for="data_nascimento"><b>Data de Nascimento:</b></label>
-                    <input type="date" name="data_nascimento" id="data_nascimento" required>
-
-                    <br><br><br>
-
+        <!-- Formulário -->
+        <div class="box">
+            <form action="formulariocliente.php" method="POST">
+                <fieldset>
+                    <!-- Tiutulo do Formulário -->
+                    <legend><b>Formulário de Clientes</b></legend>
                     <br>
-                    <br><br>
+
+                    <!-- Box de Nome  -->
                     <div class="inputBox">
-                        <input type="text" name="endereco" id="endereco" class="inputUser" required autocomplete="off">
-                        <label for="endereco" class="labelInput">Endereço</label>
+                        <input type="text" name="nome" id="nome" placeholder="Digite Seu Nome Completo" required autocomplete="off">
+                        <br>
+>>>>>>> Stashed changes
                     </div>
+
+
+                    <!-- Box de Email  -->
+                    <div class="inputBox">
+                        <input type="text" name="email" id="email" placeholder="Digite Seu E-Mail" required autocomplete="off">
+                        <br>
+                    </div>
+                    
+
+                    <!-- Box de CPF  -->
+                    <div class="inputBox">
+                        <input type="text" name="cpf" id="cpf" placeholder="Digite Seu CPF" required autocomplete="off">
+                        <br>
+                    </div>
+
+
+                    <!-- Box de Endereço  -->
+                    <div class="inputBox">
+                        <input type="text" name="especie" id="especie" placeholder="Digite Sua Espécie" required autocomplete="off">
+                        <br>
+                    </div>
+
+                        
+                    <!-- Box de Telefone  -->
+                    <div class="inputBox">
+                        <input type="tel" name="telefone" id="telefone" class="inputUser" placeholder="Digite Seu Telefone" required autocomplete="off">
+                        <br>
+                    </div>
+                    
+
+                    <!-- Box de Genero  -->
+                        <p>Sexo:</p>
+                        <input type="radio" id="feminino" name="genero" value="feminino" required>
+                        <label for="feminino">Feminino</label>
+                        <br>
+                        <input type="radio" id="masculino" name="genero" value="masculino" required>
+                        <label for="masculino">Masculino</label>
+                        <br>
+                        <input type="radio" id="outros" name="genero" value="outros" required>
+                        <label for="outros">Outros</label>
+                        <br><br>
+
+                    <!-- Box de Data de Nascimento  -->
+                        <label for="data_nascimento"><b>Data de Nascimento:</b></label>
+                        <input type="date" name="data_nascimento" id="data_nascimento" required>
+
                     <br>
                     <br><br>
-                    <input type="submit" name="submit" id="submit">
+                    <br>
 
-            </fieldset>
+                    <!-- Box de Endreço  -->
+                    <div class="inputBox">
+                        <input type="text" name="endereco" id="endereco" class="inputUser" placeholder="Digite Seu Endereço" required autocomplete="off">
+                        <br>
+                    </div>
 
-        </form>
-    </div>
-</body>
 
-</html>
+
+                    <!-- Botçao de Enviar  -->
+                        <input type="submit" name="submit" id="submit">
+
+                </fieldset>
+
+            </form>
+        </div>
+    </body>
+
+    </html>

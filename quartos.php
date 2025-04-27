@@ -97,11 +97,20 @@ $result = $conexao->query($sql);
             <table class="table-item">
                 <thead>
                     <tr>
+<<<<<<< Updated upstream
                         <th scope="col">#</th>
                         <th scope="col">Quarto</th>
                         <th scope="col">Nome do Cliente</th>
                         <th scope="col">Email do Cliente</th>
                         <th scope="col">Total Preço</th> <!-- Nova coluna -->
+=======
+                        <th scope="col">ID</th>
+                        <th scope="col">Tipo Do Quarto</th>
+                        <th scope="col">Nome do Cliente</th>
+                        <th scope="col">Email do Cliente</th>
+                        <th scope="col">Preço Total</th>
+                        <th scope="col">Especie do Cliente</th>
+>>>>>>> Stashed changes
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
