@@ -48,10 +48,12 @@ if (isset($_POST['submit'])) {
         <form action="formulario.php" method="POST">
             <fieldset>
                 <legend><b>Formulário de Funcionários</b></legend>
-                <div class="inputBox">
+
+               <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="inputUser" required>
                     <label for="nome" class="labelInput">Nome Completo</label>
-                </div>
+                </div> 
+
                 <div class="inputBox">
                     <input type="text" name="email" id="email" class="inputUser" required>
                     <label for="email" class="labelInput">E-mail</label>
@@ -65,12 +67,25 @@ if (isset($_POST['submit'])) {
                     <label for="telefone" class="labelInput">Telefone</label>
                 </div>
                 <p>Sexo:</p>
+<<<<<<< Updated upstream
                 <input type="radio" id="feminino" name="genero" value="feminino" required>
                 <label for="feminino">Feminino</label>
                 <input type="radio" id="masculino" name="genero" value="masculino" required>
                 <label for="masculino">Masculino</label>
                 <input type="radio" id="outros" name="genero" value="outros" required>
                 <label for="outros">Outros</label>
+=======
+                    <input type="radio" id="feminino" name="genero" value="feminino" required>
+                    <label for="feminino">Feminino</label>
+                    <br>
+                    <input type="radio" id="masculino" name="genero" value="masculino" required>
+                    <label for="masculino">Masculino</label>
+                    <br>
+                    <input type="radio" id="outros" name="genero" value="outros" required>
+                    <label for="outros">Outros</label>
+                    <br><br>
+
+>>>>>>> Stashed changes
                 <label for="data_nascimento"><b>Data de Nascimento:</b></label>
                 <input type="date" name="data_nascimento" id="data_nascimento" required>
                 <div class="inputBox">
