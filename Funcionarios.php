@@ -97,14 +97,9 @@ $result = $conexao->query($sql);
                         <th scope="col">sexo</th>
                         <th scope="col">Data de Nascimento</th>
                         <th scope="col">Estado</th>
-<<<<<<< Updated upstream
-                        <th scope="col">Endereço</th>
-                        <th scope="col">...</th>
-=======
                         <th scope="col">Cidade</th>
                         <th scope="col">Endereço</th> 
                         <th scope="col">Ações</th>
->>>>>>> Stashed changes
                     </tr>
                 </thead>
 

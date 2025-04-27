@@ -2,14 +2,6 @@
     if (isset($_POST['submit'])) {
         include_once('../conexao_dtb/config.php');
 
-<<<<<<< Updated upstream
-    // Captura os dados do formulário
-    $nome = $_POST['nome']; 
-    $email = $_POST['email']; 
-    $quarto = $_POST['quarto']; 
-    $data_entrada = $_POST['data_entrada'];
-    $data_saida = $_POST['data_saida'];
-=======
         // Captura os dados do formulário
         $nome = $_POST['nome']; 
         $email = $_POST['email']; 
@@ -17,7 +9,6 @@
         $data_entrada = $_POST['data_entrada'];
         $data_saida = $_POST['data_saida'];
         $especie = $_POST['especie'];
->>>>>>> Stashed changes
 
         // Cálculo do preço baseado no quarto e nas datas
         $preco_por_noite = 0;
@@ -71,20 +62,6 @@
     <!DOCTYPE html>
     <html lang="pt-br">
 
-<<<<<<< Updated upstream
-    // Insere os dados no banco
-    $result = mysqli_query($conexao, "INSERT INTO quartos (quarto, nome, email, data_entrada, data_saida, total_preco) 
-                                      VALUES ('$quarto', '$nome', '$email', '$data_entrada', '$data_saida', '$total_preco')");
-
-    if ($result) {
-        header('Location: ../quartos.php');
-        exit();
-    } else {
-        echo "Erro ao cadastrar os dados: " . mysqli_error($conexao);
-    }
-}
-?>
-=======
     <!-- Aba do Navegador Explorer -->
     <head>
         <meta charset="UTF-8">
@@ -100,12 +77,11 @@
         <div class="buttonVoltar">
             <a href="../quartos.php" class="btnVoltar">Voltar</a>
         </div>
->>>>>>> Stashed changes
 
         <a href="funcionarios.php" style="color: white; text-decoration: none;">Voltar</a>
         <div class="box">
 
-<<<<<<< Updated upstream
+
     <link rel="stylesheet" href="../styleCSS/FORMULARIOS.css">
 </head>
 <body>
@@ -117,10 +93,10 @@
                 <br>
                 <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="inputUser" required>
-<<<<<<< Updated upstream
+
                     <label for="nome" class="labelInput">Nome Completo</label>
                 </div>
-=======
+
         <!-- Formulario -->
             <form action="formularioquartos.php" method="POST">
             
@@ -138,7 +114,7 @@
                     <input type="text" name="nome" id="nome" value="<?= $cliente['nome'] ?? '' ?>" required>
                     <br><br>
             
->>>>>>> Stashed changes
+
 
                 <!-- Label de Email  -->
                 <label for="email">E-Mail do Cliente:</label>
@@ -148,10 +124,6 @@
 
                 <!-- Label de Especie  -->
                 <div class="inputBox">
-<<<<<<< Updated upstream
-                    <input type="email" name="email" id="email" class="inputUser" required>
-                    <label for="email" class="labelInput">E-mail</label>
-=======
                     <label for="nome" class="labelInput">Digite Seu Nome</label>
                 </div>
 
@@ -164,18 +136,17 @@
                 <div class="inputBox">
                     <input type="text" name="especie" id="especie" class="inputUser" required>
                     <label for="especie" class="labelInput">Qual Sua Espécie?</label>
->>>>>>> Stashed changes
                 </div>
 
                 <br>
-=======
+
                         <input type="text" name="especie" id="especie" placeholder="Digite Sua Espécie" required>
                         <br>
                 </div>
                   
                 
                 <!-- Box de Quartos  -->
->>>>>>> Stashed changes
+
                 <label for="quarto"><b>Selecione o Quarto:</b></label>
                     <select name="quarto" id="quarto" required>
                         <option value="" disabled selected>Escolha uma opção</option>
