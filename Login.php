@@ -1,29 +1,41 @@
+
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tela de Login</title>
 
-    <link rel="stylesheet" href="styleCSS/FORMULARIOS.css">
-
+  <link rel="stylesheet" href="styleCSS/login.css"/>
 </head>
 
 <body>
-    <div class="tela-login">
-      
-        <img class="logoLogin" src="img/brasaoHT.png" alt="logo">
-
-        <h1> Login</h1>
-        <form action="testlogin.php" method="POST">
-            <input type="text" name="email" placeholder="Email">
-            <br><br>
-            <input type="password" name="senha" placeholder="Senha">
-            <br><br>
-            <input class="inputSubmit" type="submit" name="submit" value="Enviar">
+  <div class="main-login">
+    <div class="left-login">
+      <h1>Faça o Login <br> E entre para o nosso time</h1>
+      <img class="left-login-image" src="img/login.png" alt="logologin" />
     </div>
-    
-</body>
 
+    <div class="right-login">
+      <div class="card-login">
+        <h1>LOGIN</h1>
+        <form action="testlogin.php" method="POST">
+
+          <div class="textfield">
+          
+            <input type="text" name="email" placeholder="Digite Seu Email">
+          </div>
+
+          <div class="textfield">
+          
+          <input type="password" name="senha" placeholder="Digite Sua Senha">
+
+          </div>
+          <input class="inputSubmit" type="submit" name="submit" value="Login">
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
