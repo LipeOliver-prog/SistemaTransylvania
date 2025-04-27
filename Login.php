@@ -14,7 +14,7 @@
   <div class="main-login">
     <div class="left-login">
       <h1>Faça o Login <br> E entre para o nosso time</h1>
-      <img class="left-login-image" src="img/login.png" alt="logologin" />
+      <img class="left-login-image" src="img/login2.svg" alt="logologin" />
     </div>
 
     <div class="right-login">
