@@ -49,10 +49,22 @@ if (isset($_POST['submit'])) {
             <fieldset>
                 <legend><b>Formulário de Funcionários</b></legend>
 
+<<<<<<< Updated upstream
                <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="inputUser" required>
                     <label for="nome" class="labelInput">Nome Completo</label>
                 </div> 
+=======
+               <!-- <div class="inputBox">
+                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                    <label for="nome" class="labelInput">Nome Completo</label>
+                </div> -->
+
+                <!-- TESTE -->
+                <div class="inputBox">
+                    <input type="text" name="nome" id="nome" placeholder="Nome Completo" required>
+                </div>
+>>>>>>> Stashed changes
 
                 <div class="inputBox">
                     <input type="text" name="email" id="email" class="inputUser" required>
@@ -68,6 +80,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <p>Sexo:</p>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 <input type="radio" id="feminino" name="genero" value="feminino" required>
                 <label for="feminino">Feminino</label>
                 <input type="radio" id="masculino" name="genero" value="masculino" required>
@@ -75,6 +88,8 @@ if (isset($_POST['submit'])) {
                 <input type="radio" id="outros" name="genero" value="outros" required>
                 <label for="outros">Outros</label>
 =======
+=======
+>>>>>>> Stashed changes
                     <input type="radio" id="feminino" name="genero" value="feminino" required>
                     <label for="feminino">Feminino</label>
                     <br>
@@ -85,6 +100,9 @@ if (isset($_POST['submit'])) {
                     <label for="outros">Outros</label>
                     <br><br>
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 <label for="data_nascimento"><b>Data de Nascimento:</b></label>
                 <input type="date" name="data_nascimento" id="data_nascimento" required>

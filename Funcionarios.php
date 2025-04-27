@@ -56,22 +56,22 @@ $result = $conexao->query($sql);
 
         <div class="bemVindo">
             <?php
-            echo "<p>Bem vindo</p> <u>$logado</u>";
-            ?>
+                echo "<p>Bem vindo</p> <u>$logado</u>";
+             ?>
         </div>
 
-        <div class="buttonSair">
-            <a href="sair.php" class="btnSair">Sair</a>
+            <div class="buttonSair">
+                <a href="sair.php" class="btnSair">Sair</a>
+            </div>
+        </header>
+
+
+    <!-- Botões de Cadastro de Funcionarios -->
+        <div class="box-search1">
+            <div class="box">
+                <a href="formularios/formulario.php">Cadastro Funcionários</a>
         </div>
-    </header>
-
-
-
-    <div class="box-search1">
-        <div class="box">
-            <a href="formularios/formulario.php">Cadastro</a>
-        </div>
-
+    <!-- Botões de Pesquisa pelo ID -->
         <div class="search1">
 
             <input type="search" class="form-control search-field" placeholder="Pesquisar" id="pesquisar">

@@ -69,7 +69,7 @@ $result = $conexao->query($sql);
             <a href="formularios/formularioquartos.php">Cadastro quartos</a>
         </div>
 
-
+        <!-- Botão de Pesquisa por ID -->
         <div class="search1">
 
             <input type="search" class="form-control search-field" placeholder="Pesquisar" id="pesquisar">

@@ -75,12 +75,27 @@ if (isset($_POST['submit'])) {
                 <br>
                 <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="inputUser" required>
+<<<<<<< Updated upstream
                     <label for="nome" class="labelInput">Nome Completo</label>
                 </div>
 
                 <div class="inputBox">
                     <input type="email" name="email" id="email" class="inputUser" required>
                     <label for="email" class="labelInput">E-mail</label>
+=======
+                    <label for="nome" class="labelInput">Digite Seu Nome</label>
+                </div>
+
+                <div class="inputBox">
+                    <input type="text" name="email" id="email" class="inputUser" required>
+                    <label for="email" class="labelInput">Digite Seu E-Mail</label>
+                </div>
+                
+
+                <div class="inputBox">
+                    <input type="text" name="especie" id="especie" class="inputUser" required>
+                    <label for="especie" class="labelInput">Qual Sua Espécie?</label>
+>>>>>>> Stashed changes
                 </div>
 
                 <br>

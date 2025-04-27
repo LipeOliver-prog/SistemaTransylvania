@@ -34,12 +34,13 @@ $result = $conexao->query($sql);
 </head>
 
 <body>
-
-    <header class="header">
-        <a href="Home.php" class="logo">
-            <img src="img/brasaoHT.png" alt="logo">
+        <!-- Logo do Site -->
+        <header class="header">
+            <a href="Home.php" class="logo">
+                <img src="img/brasaoHT.png" alt="logo">
         </a>
 
+        <!-- Botões de Navageação -->
         <nav class="navbar">
             <a href="Home.php">Home</a>
             <a href="Funcionarios.php">Funcionarios</a>
@@ -56,15 +57,29 @@ $result = $conexao->query($sql);
             ?>
         </div>
 
+        <!-- Botão de Sair   -->
         <div class="buttonSair">
             <a href="sair.php" class="btnSair">Sair</a>
         </div>
     </header>
 
+<<<<<<< Updated upstream
     <div class="box-search1">
         <div class="box">
             <a href="formularios/formularioquartos.php">Cadastro</a>
         </div>
+=======
+        <!-- Botão de Cadastro de Quartos-->
+        <div class="box-search1">
+            <div class="box">
+                <a href="formularios/formularioquartos.php">Cadastro quartos</a>
+        </div>
+
+        
+        
+
+        <!-- Botão de Pesquisa por ID -->
+>>>>>>> Stashed changes
         <div class="search1">
 
             <input type="search" class="form-control search-field" placeholder="Pesquisar" id="pesquisar">
@@ -77,7 +92,7 @@ $result = $conexao->query($sql);
         </div>
         </button>
 
-
+        <!-- Tabela para exibir os dados  -->
         <div class="table">
             <table class="table-item">
                 <thead>

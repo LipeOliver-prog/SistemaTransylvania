@@ -34,13 +34,14 @@ $result = $conexao->query($sql);
 
 </head>
 
+        <!-- Logo do Site -->
+        <body>
+            <header class="header">
+            <a href="Home.php" class="logo">
+                <img src="img/brasaoHT.png" alt="logo">
+            </a>
 
-<body>
-    <header class="header">
-        <a href="Home.php" class="logo">
-            <img src="img/brasaoHT.png" alt="logo">
-        </a>
-
+        <!-- Botões de Navegação -->
         <nav class="navbar">
             <a href="Home.php" class="active">Home</a>
             <a href="Funcionarios.php">Funcionarios</a>
@@ -61,11 +62,10 @@ $result = $conexao->query($sql);
             <a href="sair.php" class="btnSair">Sair</a>
         </div>
 
-    </header>
+        </header>
 
-    
-
-    <section class="home">
+        
+        <section class="home">
         
         <!-- Filtro para os quartos -->
         <div class="filter">
@@ -97,14 +97,20 @@ $result = $conexao->query($sql);
             </div>
 
             <button class="btn3" onclick="filterRooms()">Filtrar</button>
-        </div>
+            </div>
 
 
+<<<<<<< Updated upstream
         <div class="buttonCadastro">
             <a href="formularios/formulariocliente.php" class="boxCadastro">Cadastro Cliente</a>
         </div>
         
         <?php include 'card.php'; ?>
+=======
+        
+            <!-- Inclusão do Card -->
+            <?php include 'card.php'; ?>
+>>>>>>> Stashed changes
 
 
 
