@@ -94,8 +94,12 @@ $result = $conexao->query($sql);
                         <th scope="col">sexo</th>
                         <th scope="col">Data de Nascimento</th>
                         <th scope="col">Endereço</th>
+<<<<<<< Updated upstream
+                        <th scope="col">...</th>
+=======
                         <th scope="col">Ações</th>
                        
+>>>>>>> Stashed changes
                     </tr>
                 </thead>
                 <tbody>
@@ -108,7 +112,10 @@ $result = $conexao->query($sql);
                         echo "<td>" . $user_data['cpf'] . "</td>";
                         echo "<td>" . $user_data['email'] . "</td>";
                         echo "<td>" . $user_data['telefone'] . "</td>";
+<<<<<<< Updated upstream
+=======
                         echo "<td>" . $user_data['cpf'] . "</td>";
+>>>>>>> Stashed changes
                         echo "<td>" . $user_data['sexo'] . "</td>";
                         echo "<td>" . $user_data['data_nascimento'] . "</td>";
                         echo "<td>" . $user_data['endereco'] . "</td>";
