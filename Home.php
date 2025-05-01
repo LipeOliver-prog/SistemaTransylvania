@@ -100,17 +100,11 @@ $result = $conexao->query($sql);
             </div>
 
 
-<<<<<<< Updated upstream
         <div class="buttonCadastro">
             <a href="formularios/formulariocliente.php" class="boxCadastro">Cadastro Cliente</a>
         </div>
         
         <?php include 'card.php'; ?>
-=======
-        
-            <!-- Inclusão do Card -->
-            <?php include 'card.php'; ?>
->>>>>>> Stashed changes
 
 
 

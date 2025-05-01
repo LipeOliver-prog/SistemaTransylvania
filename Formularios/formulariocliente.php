@@ -6,20 +6,6 @@
     
         include_once('../conexao_dtb/config.php');
 
-<<<<<<< Updated upstream
-    //Coleta dos Dados do Formulário
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $cpf = $_POST['cpf'];
-    $telefone = $_POST['telefone'];
-    $sexo = $_POST['genero'];
-    $data_nascimento = $_POST['data_nascimento'];
-    $endereco = $_POST['endereco'];
-
-
-    // Montagem e Execução da Consulta SQL
-    $result = mysqli_query($conexao, "INSERT INTO clientes(nome, email, cpf,telefone, sexo, data_nascimento, endereco) values('$nome', '$email', '$cpf','$telefone', '$sexo', '$data_nascimento', '$endereco')");
-=======
         //Coleta dos Dados do Formulário
         $nome = $_POST['nome'];
         $email = $_POST['email'];
@@ -33,7 +19,6 @@
 
         // Montagem e Execução da Consulta SQL
         $result = mysqli_query($conexao, "INSERT INTO clientes(nome, email, cpf,telefone, sexo, data_nascimento, endereco, especie) values('$nome', '$email', '$cpf','$telefone', '$sexo', '$data_nascimento', '$endereco', '$especie')");
->>>>>>> Stashed changes
 
         header('Location: ../clientes.php');
     }
@@ -53,39 +38,6 @@
         <link rel="stylesheet" href="../styleCSS/FORMULARIOS.css">
     </head>
 
-<<<<<<< Updated upstream
-<body>
-    <div class="buttonVoltar">
-        <a href="Clientes.php" class="btnVoltar">Voltar</a>
-    </div>
-    <div class="box">
-        <form action="formulariocliente.php" method="POST">
-            <fieldset>
-                <legend><b>Formulário de Clientes</b></legend>
-                <br>
-                <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" required autocomplete="off">
-                    <label for="nome" class="labelInput">Nome Completo</label>
-                    <br>
-                </div>
-                <br><br>
-                <div class="inputBox">
-                    <input type="text" name="email" id="email" class="inputUser" required autocomplete="off">
-                    <label for="email" class="labelInput">E-mail</label>
-                    <br>
-
-                </div>
-                <br>
-                <div class="inputBox">
-                    <input type="text" name="cpf" id="cpf" class="inputUser" required autocomplete="off">
-                    <label for="cpf" class="labelInput">CPF</label>
-                    <br>
-                    <br><br>
-                    <div class="inputBox">
-                        <input type="tel" name="telefone" id="telefone" class="inputUser" required autocomplete="off">
-                        <label for="telefone" class="labelInput">Telefone</label>
-
-=======
     <body>
 
         <!-- Boão de Volar -->
@@ -105,7 +57,6 @@
                     <div class="inputBox">
                         <input type="text" name="nome" id="nome" placeholder="Digite Seu Nome Completo" required autocomplete="off">
                         <br>
->>>>>>> Stashed changes
                     </div>
 
 

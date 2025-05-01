@@ -95,16 +95,11 @@ $result = $conexao->query($sql);
                         <th scope="col">Senha</th>
                         <th scope="col">Telefone</th>
                         <th scope="col">sexo</th>
-                        <th scope="col">Data de Nascimento</th>
+                        <!--<th scope="col">Data de Nascimento</th>-->
                         <th scope="col">Estado</th>
-<<<<<<< Updated upstream
-                        <th scope="col">Endereço</th>
-                        <th scope="col">...</th>
-=======
-                        <th scope="col">Cidade</th>
-                        <th scope="col">Endereço</th> 
+                        <!-- <th scope="col">Cidade</th> -->
+                        <!-- <th scope="col">Endereço</th> -->
                         <th scope="col">Ações</th>
->>>>>>> Stashed changes
                     </tr>
                 </thead>
 
@@ -119,10 +114,10 @@ $result = $conexao->query($sql);
                         echo "<td>" . $user_data['senha'] . "</td>";
                         echo "<td>" . $user_data['telefone'] . "</td>";
                         echo "<td>" . $user_data['sexo'] . "</td>";
-                        echo "<td>" . $user_data['data_nascimento'] . "</td>";
+                        //echo "<td>" . $user_data['data_nascimento'] . "</td>";
                         echo "<td>" . $user_data['estado'] . "</td>";
-                        echo "<td>" . $user_data['cidade'] . "</td>";
-                        echo "<td>" . $user_data['endereco'] . "</td>";
+                        // echo "<td>" . $user_data['cidade'] . "</td>";
+                        // echo "<td>" . $user_data['endereco'] . "</td>";
                         echo "<td>
                             <a class='btn1 btn-sm btn-primary' href='Edit/edit.php?id=$user_data[id]'>
                             <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>

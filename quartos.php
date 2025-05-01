@@ -63,23 +63,14 @@ $result = $conexao->query($sql);
         </div>
     </header>
 
-<<<<<<< Updated upstream
-    <div class="box-search1">
-        <div class="box">
-            <a href="formularios/formularioquartos.php">Cadastro</a>
-        </div>
-=======
         <!-- Botão de Cadastro de Quartos-->
         <div class="box-search1">
             <div class="box">
                 <a href="formularios/formularioquartos.php">Cadastro quartos</a>
         </div>
 
-        
-        
 
         <!-- Botão de Pesquisa por ID -->
->>>>>>> Stashed changes
         <div class="search1">
 
             <input type="search" class="form-control search-field" placeholder="Pesquisar" id="pesquisar">
@@ -97,20 +88,12 @@ $result = $conexao->query($sql);
             <table class="table-item">
                 <thead>
                     <tr>
-<<<<<<< Updated upstream
-                        <th scope="col">#</th>
-                        <th scope="col">Quarto</th>
-                        <th scope="col">Nome do Cliente</th>
-                        <th scope="col">Email do Cliente</th>
-                        <th scope="col">Total Preço</th> <!-- Nova coluna -->
-=======
                         <th scope="col">ID</th>
                         <th scope="col">Tipo Do Quarto</th>
                         <th scope="col">Nome do Cliente</th>
                         <th scope="col">Email do Cliente</th>
                         <th scope="col">Preço Total</th>
                         <th scope="col">Especie do Cliente</th>
->>>>>>> Stashed changes
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -131,6 +114,7 @@ $result = $conexao->query($sql);
                         echo "<td>" . $room_data['nome'] . "</td>"; // Nome do cliente associado
                         echo "<td>" . $room_data['email'] . "</td>"; // Email do cliente associado
                         echo "<th>R$ " . number_format($room_data['total_preco'], 2, ',', '.') . "</th>"; // Total preço formatado
+                        echo "<td>" . $room_data['especie'] . "</td>"; // Email do cliente associado
                         // Coluna de ações com botões estilizados
                         echo "<td>
                         <a class='btn1 btn-sm btn-primary' href='Edit/editquarto.php?id=" . $room_data['idquartos'] . "'> 
