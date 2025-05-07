@@ -1,139 +1,183 @@
-<?php 
-if (isset($_POST['submit'])) {
-    include_once('../conexao_dtb/config.php');
+<?php
+session_start();
+include_once('../conexao_dtb/config.php');
 
-    // Captura os dados do formulário
-    $nome = $_POST['nome']; 
-    $email = $_POST['email']; 
-    $quarto = $_POST['quarto']; 
-    $data_entrada = $_POST['data_entrada'];
-    $data_saida = $_POST['data_saida'];
-    $especie = $_POST['especie'];
+// === BUSCA DE CLIENTE POR ID ===
+if (isset($_POST['buscar_cliente'])) {
+    $id_busca = mysqli_real_escape_string($conexao, $_POST['id_busca']);
+    $sql_busca = "
+        SELECT nome, cpf
+        FROM clientes
+        WHERE id = '{$id_busca}'
+        LIMIT 1
+    ";
+    $res_busca = $conexao->query($sql_busca);
 
-    // Cálculo do preço baseado no quarto e nas datas
-    $preco_por_noite = 0;
-
-    // Preços dos quartos por noite
-    switch ($quarto) {
-        case 'luxo_2_camas':
-            $preco_por_noite = 200;
-            break;
-        case 'basico_1_cama':
-            $preco_por_noite = 100;
-            break;
-        case 'luxo_3_camas':
-            $preco_por_noite = 250;
-            break;
-        case 'basico_2_camas':
-            $preco_por_noite = 150;
-            break;
-        case 'luxo_1_cama':
-            $preco_por_noite = 180;
-            break;
-    }
-
-    // Calculando o número de dias entre as datas de entrada e saída
-    $data_entrada_timestamp = strtotime($data_entrada);
-    $data_saida_timestamp = strtotime($data_saida);
-    $dias_estadia = ($data_saida_timestamp - $data_entrada_timestamp) / (60 * 60 * 24); // converte segundos para dias
-
-    // Verifica se as datas são válidas e o número de dias é positivo
-    if ($dias_estadia > 0) {
-        $total_preco = $preco_por_noite * $dias_estadia;
+    if ($res_busca && $res_busca->num_rows > 0) {
+        $cliente = $res_busca->fetch_assoc();
     } else {
-        $total_preco = 0;
-        echo "Erro: a data de saída deve ser posterior à data de entrada.";
-    }
-
-    // Insere os dados no banco
-    $result = mysqli_query($conexao, "INSERT INTO quartos (quarto, nome, email, data_entrada, data_saida, total_preco, especie ) 
-                                      VALUES ('$quarto', '$nome', '$email', '$data_entrada', '$data_saida', '$total_preco', '$especie')");
-
-    if ($result) {
-        header('Location: ../quartos.php');
-        exit();
-    } else {
-        echo "Erro ao cadastrar os dados: " . mysqli_error($conexao);
+        $erro = "Cliente com ID {$id_busca} não encontrado!";
     }
 }
 
+// === PROCESSA O CADASTRO E CÁLCULO DO PREÇO ===
+if (isset($_POST['submit'])) {
+    // Captura e sanitiza dados básicos
+    $nome          = mysqli_real_escape_string($conexao, $_POST['nome_cliente']);
+    $cpf           = mysqli_real_escape_string($conexao, $_POST['cpf_cliente']);
+    $especie       = mysqli_real_escape_string($conexao, $_POST['especie']);
+    $quarto        = mysqli_real_escape_string($conexao, $_POST['quarto']);
+    $data_entrada  = $_POST['data_entrada'];
+    $data_saida    = $_POST['data_saida'];
+
+    // Captura personalizações opcionais e converte pra JSON
+    $personalizacoes_raw = $_POST['personalizacoes'] ?? [];
+    $lista_trimmed = array_filter(array_map('trim', $personalizacoes_raw), function($v){ return $v !== ''; });
+    $json_personalizacoes = mysqli_real_escape_string(
+        $conexao,
+        json_encode(array_values($lista_trimmed), JSON_UNESCAPED_UNICODE)
+    );
+
+    // Preço por noite
+    switch ($quarto) {
+        case 'luxo_2_camas':   $preco_por_noite = 200; break;
+        case 'basico_1_cama':  $preco_por_noite = 100; break;
+        case 'luxo_3_camas':   $preco_por_noite = 250; break;
+        case 'basico_2_camas': $preco_por_noite = 150; break;
+        case 'luxo_1_cama':    $preco_por_noite = 180; break;
+        default:               $preco_por_noite = 0;
+    }
+
+    // Cálculo de dias
+    $dias = (strtotime($data_saida) - strtotime($data_entrada)) / 86400;
+    if ($dias <= 0) {
+        die("Erro: data de saída deve ser posterior à de entrada.");
+    }
+    $total_preco = $preco_por_noite * $dias;
+
+    // Insere no banco com JSON de personalizações
+    $ins = "
+      INSERT INTO quartos
+        (nome, cpf, especie, quarto, data_entrada, data_saida, total_preco, personalizacoes)
+      VALUES
+        ('{$nome}','{$cpf}','{$especie}','{$quarto}','{$data_entrada}','{$data_saida}','{$total_preco}','{$json_personalizacoes}')
+    ";
+
+    if ($conexao->query($ins)) {
+        header('Location: ../quartos.php');
+        exit;
+    } else {
+        echo "Erro ao cadastrar: " . $conexao->error;
+    }
+}
 ?>
 
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário | Clientes</title>
-
-    <link rel="stylesheet" href="../styleCSS/FORMULARIOS.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Formulário de Quartos</title>
+  <link rel="stylesheet" href="../styleCSS/FORMULARIOS.css">
 </head>
 <body>
+  <div class="buttonVoltar">
+    <a href="../quartos.php" class="btnVoltar">Voltar</a>
+  </div>
 
-    <!-- Botão de Voltar -->
-    <div class="buttonVoltar">
-        <a href="../quartos.php" class="btnVoltar">Voltar</a>
+  <div class="box">
+    <!-- FORM DE BUSCA -->
+    <legend><b>Formulário de Quartos</b></legend>
+    <br>
+    <form action="formularioquartos.php" method="POST" class="buscaCliente">
+      <label for="id_busca">Buscar Cliente pelo ID:</label>
+      <input type="text" name="id_busca" id="id_busca" required>
+      <button type="submit" name="buscar_cliente" class="btnBuscar">Buscar</button>
+      <?php if (isset($erro)): ?>
+        <p class="erroBusca"><?= $erro ?></p>
+      <?php endif; ?>
+    </form>
+
+<!-- FORM DE CADASTRO -->
+<form action="formularioquartos.php" method="POST">
+  <fieldset>
+
+    <label for="nome_cliente">Nome do Cliente:</label>
+    <input
+      type="text" name="nome_cliente" id="nome_cliente"
+      value="<?= htmlspecialchars($cliente['nome'] ?? '') ?>"
+      required
+    ><br><br>
+
+    <label for="cpf_cliente">CPF do Cliente:</label>
+    <input
+      type="text" name="cpf_cliente" id="cpf_cliente"
+      value="<?= htmlspecialchars($cliente['cpf'] ?? '') ?>"
+      required
+    ><br><br>
+
+    <div class="inputBox">
+      <input type="text" name="especie" id="especie" class="inputUser" required>
+      <label for="especie" class="labelInput">Qual Sua Espécie?</label>
     </div>
 
-    <a href="funcionarios.php" style="color: white; text-decoration: none;">Voltar</a>
-    <div class="box">
-        <form action="formularioquartos.php" method="POST">
-           
-
-
-            <fieldset>
-                <legend><b>Formulário de Quartos</b></legend>
-                <br>
-                
-                
-
-                <div class="inputBox">
-                <label for="nome_cliente">Nome do Cliente:</label>
-        <input type="text" name="nome_cliente" id="nome_cliente" value="<?= $cliente['nome'] ?? '' ?>" required><br><br>
-
-        <label for="cpf_cliente">CPF do Cliente:</label>
-        <input type="text" name="cpf_cliente" id="cpf_cliente" value="<?= $cliente['cpf'] ?? '' ?>" required><br><br>
-
-
-             
-
-                <div class="inputBox">
-                    <input type="text" name="especie" id="especie" class="inputUser" required>
-                    <label for="especie" class="labelInput">Qual Sua Espécie?</label>
-                </div>
-                
-
-                <br>
-                <label for="quarto"><b>Selecione o Quarto:</b></label>
-                <select name="quarto" id="quarto" required>
-                    <option value="" disabled selected>Escolha uma opção</option>
-                    <option value="luxo_2_camas">Quarto de Luxo - 2 Camas - Com Sacada</option>
-                    <option value="basico_1_cama">Quarto Básico - 1 Cama - Sem Sacada</option>
-                    <option value="luxo_3_camas">Quarto de Luxo - 3 Camas - Com Sacada</option>
-                    <option value="basico_2_camas">Quarto Básico - 2 Camas - Sem Sacada</option>
-                    <option value="luxo_1_cama">Quarto de Luxo - 1 Cama - Sem Sacada</option>
-                </select>
-
-                <br><br>
-                <div class="inputBox">
-                    <input type="date" name="data_entrada" id="data_entrada" class="inputUser" required>
-                    <label for="data_entrada" class="labelInput">Data de Entrada</label>
-                </div>
-
-                <div class="inputBox">
-                    <input type="date" name="data_saida" id="data_saida" class="inputUser" required>
-                    <label for="data_saida" class="labelInput">Data de Saída</label>
-                </div>
-
-                <br>
-                <div class="inputBox">
-                    <label for="preco">Preço Total: R$</label>
-                    <input type="text" name="preco" id="preco" class="inputUser" readonly value="<?php echo isset($total_preco) ? $total_preco : ''; ?>" />
-                </div>
-
-                <input type="submit" name="submit" id="submit" value="Cadastrar">
-            </fieldset>
-        </form>
+    <!-- Campos de personalização dinâmica -->
+    <br>
+    <label><b>Personalizações (opcional):</b></label>
+    <div id="custom-container">
+      <div class="custom-input">
+        <input type="text" name="personalizacoes[]" placeholder="Digite aqui...">
+      </div>
     </div>
+    <button type="button" id="add-custom">➕ Adicionar mais</button>
+
+    <br><br>
+    <label for="quarto"><b>Selecione o Quarto:</b></label>
+    <select name="quarto" id="quarto" required>
+      <option value="" disabled selected>Escolha uma opção</option>
+      <option value="luxo_2_camas">Luxo – 2 Camas</option>
+      <option value="basico_1_cama">Básico – 1 Cama</option>
+      <option value="luxo_3_camas">Luxo – 3 Camas</option>
+      <option value="basico_2_camas">Básico – 2 Camas</option>
+      <option value="luxo_1_cama">Luxo – 1 Cama</option>
+    </select>
+
+    <br><br>
+    <div class="inputBox">
+      <input type="date" name="data_entrada" id="data_entrada" class="inputUser" required>
+      <label for="data_entrada" class="labelInput">Data de Entrada</label>
+    </div>
+
+    <div class="inputBox">
+      <input type="date" name="data_saida" id="data_saida" class="inputUser" required>
+      <label for="data_saida" class="labelInput">Data de Saída</label>
+    </div>
+
+    <br>
+    <div class="inputBox">
+      <label for="preco">Preço Total: R$</label>
+      <input
+        type="text" name="preco" id="preco" class="inputUser" readonly
+        value="<?= isset($total_preco) ? number_format($total_preco,2,',','.') : '' ?>"
+      />
+    </div>
+
+    <input type="submit" name="submit" id="submit" value="Cadastrar">
+  </fieldset>
+</form>
+
+
+  </div>
+
+  <script>
+  document.getElementById('add-custom').addEventListener('click', function() {
+    const container = document.getElementById('custom-container');
+    const novo = container.querySelector('.custom-input').cloneNode(true);
+    novo.querySelector('input').value = '';
+    container.appendChild(novo);
+  });
+  </script>
+
 </body>
 </html>
