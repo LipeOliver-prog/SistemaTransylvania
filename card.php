@@ -45,7 +45,7 @@
 
     <div class="wrapper">
       <figure class="card">
-        <img src="./img/house.jpg" alt="card image" />
+        <img src="./img/house.jpg" alt="card image">
 
         <figcaption class="card__cap">
           <h2>Casa de praia</h2>
