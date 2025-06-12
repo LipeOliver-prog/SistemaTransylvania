@@ -3,20 +3,20 @@ session_start();
 include_once('conexao_dtb/config.php');
 // print_r($_SESSION);
 if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
-    unset($_SESSION['email']);
-    unset($_SESSION['senha']);
-    header('Location: login.php');
+  unset($_SESSION['email']);
+  unset($_SESSION['senha']);
+  header('Location: login.php');
 }
 $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
-    $data = $_GET['search'];
-    $sql = "SELECT * FROM funcionarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id DESC";
+  $data = $_GET['search'];
+  $sql = "SELECT * FROM funcionarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id DESC";
 } else {
-    $sql = "SELECT * FROM funcionarios ORDER BY id DESC";
+  $sql = "SELECT * FROM funcionarios ORDER BY id DESC";
 }
 $result = $conexao->query($sql);
 ?>
-    
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -29,51 +29,54 @@ $result = $conexao->query($sql);
   <link rel="stylesheet" href="styleCSS/style.css">
 
 </head>
+
 <body>
 
   <header class="header">
 
-        <a href="Home.php" class="logo">
+    <a href="Home.php" class="logo">
 
-            <img src="img/brasaoHT.png" alt="logo">
+      <img src="img/brasaoHT.png" alt="logo">
 
-        </a>
+    </a>
 
-        <nav class="navbar">
+    <nav class="navbar">
 
-            <a href="Home.php" class="active">Home</a>
+      <a href="Home.php" class="active">Home</a>
 
-            <a href="Funcionarios.php">Funcionarios</a>
+      <a href="Funcionarios.php">Funcionarios</a>
 
-            <a href="quartos.php">Quartos</a>
+      <a href="quartos.php">Quartos</a>
 
-            <a href="Clientes.php">Clientes</a>
+      <a href="Clientes.php">Clientes</a>
 
-            <a href="frigobar.php">Frigobar</a>
+      <a href="frigobar.php">Frigobar</a>
 
-            <a href="pagamento.php">Pagamento</a>
+      <a href="pagamento.php">Pagamento</a>
 
-        </nav>
+    </nav>
 
-        <div class="bemVindo">
-            <?php echo "<p>Bem vindo</p> <u>$logado</u>";   ?>
-        </div>
+    <div class="bemVindo">
+      <?php echo "<p>Bem vindo</p> <u>$logado</u>";   ?>
+    </div>
 
-        <div class="buttonSair">
+    <div class="buttonSair">
 
-            <a href="sair.php" class="btnSair">Sair</a>
+      <a href="sair.php" class="btnSair">Sair</a>
 
-        </div>
+    </div>
 
-    </header>
+  </header>
+
+  <div class="home-container"></div>
 
   <!-- Filtro de Quartos -->
 
   <section class="home">
 
-    <div class="filter">
+    <h1>Filtro Quartos</h1>
 
-      <h1>Filtrar Quartos</h1>
+    <div class="filter">
 
       <div class="filter-group">
 
@@ -168,93 +171,92 @@ $result = $conexao->query($sql);
     </div>
 
 
-  <!-- Container Dinâmico de Cards -->
-  <div class="card-container" id="roomsContainer"></div>
+    <!-- Container Dinâmico de Cards -->
+    <div class="card-container" id="roomsContainer"></div>
 
-  <script>
-    // Dados de exemplo com campo `image`
-    const rooms = [
-      {
-        id: 1,
-        monster: 'vampiro',
-        image: 'brasaoHT.png',      // usará essa imagem
-        type: 'luxo',
-        beds: 2,
-        balcony: true,
-        breakfast: true,
-        price: 350,
-        features: ['Vista Lago', 'Frigobar']
-      },
-      {
-        id: 2,
-        monster: 'lobisomem',
-        image: 'house.jpg',         // usará house.jpg
-        type: 'basico',
-        beds: 1,
-        balcony: false,
-        breakfast: false,
-        price: 200,
-        features: ['Wifi 240h']
-      },
-      {
-        id: 3,
-        monster: 'mumia',
-        image: 'mumia.jpg',
-        type: 'suite',
-        beds: 3,
-        balcony: true,
-        breakfast: true,
-        price: 500,
-        features: ['Piscina Privativa', 'Hidromassagem']
-      },
-      {
-        id: 4,
-        monster: 'zumbi',
-        image: 'zumbi.jpg',
-        type: 'basico',
-        beds: 2,
-        balcony: false,
-        breakfast: true,
-        price: 220,
-        features: ["Sala de Jogos", "chocolate quente"]
-      }
-    ];
+    <script>
+      // Dados de exemplo com campo `image`
+      const rooms = [{
+          id: 1,
+          monster: 'vampiro',
+          image: 'QuartoVamp.png', // usará essa imagem
+          type: 'luxo',
+          beds: 2,
+          balcony: true,
+          breakfast: true,
+          price: 350,
+          features: ['Vista Lago', 'Frigobar']
+        },
+        {
+          id: 2,
+          monster: 'lobisomem',
+          image: 'QuartoLobi.png', // usará house.jpg
+          type: 'basico',
+          beds: 1,
+          balcony: false,
+          breakfast: false,
+          price: 200,
+          features: ['Wifi 240h']
+        },
+        {
+          id: 3,
+          monster: 'mumia',
+          image: 'QuartoMumia.jpg', // usará QuartoMumia.png
+          type: 'suite',
+          beds: 3,
+          balcony: true,
+          breakfast: true,
+          price: 500,
+          features: ['Piscina Privativa', 'Hidromassagem']
+        },
+        {
+          id: 4,
+          monster: 'zumbi',
+          image: 'QuartoZumbi.png',
+          type: 'basico',
+          beds: 2,
+          balcony: false,
+          breakfast: true,
+          price: 220,
+          features: ["Sala de Jogos", "chocolate quente"]
+        }
+      ];
 
-    function filterRooms() {
-      const monster   = document.getElementById('monsterType').value;
-      const roomType  = document.getElementById('roomType').value;
-      const beds      = document.getElementById('beds').value;
-      const balcony   = document.getElementById('balcony').value;
-      const breakfast = document.getElementById('breakfast').value;
+      function filterRooms() {
+        const monster = document.getElementById('monsterType').value;
+        const roomType = document.getElementById('roomType').value;
+        const beds = document.getElementById('beds').value;
+        const balcony = document.getElementById('balcony').value;
+        const breakfast = document.getElementById('breakfast').value;
 
-      const filtered = rooms.filter(room => (
-           (monster   === 'all' || room.monster   === monster)
-        && (roomType  === 'all' || room.type      === roomType)
-        && (beds      === 'all' || room.beds      === parseInt(beds))
-        && (balcony   === 'all' || room.balcony   === (balcony === 'true'))
-        && (breakfast === 'all' || room.breakfast === (breakfast === 'true'))
-      ));
+        const filtered = rooms.filter(room => (
+          (monster === 'all' || room.monster === monster) &&
+          (roomType === 'all' || room.type === roomType) &&
+          (beds === 'all' || room.beds === parseInt(beds)) &&
+          (balcony === 'all' || room.balcony === (balcony === 'true')) &&
+          (breakfast === 'all' || room.breakfast === (breakfast === 'true'))
+        ));
 
-      renderRooms(filtered);
-    }
-
-    function renderRooms(list) {
-      const container = document.getElementById('roomsContainer');
-      container.innerHTML = '';
-
-      if (list.length === 0) {
-        container.innerHTML = '<p>Nenhum quarto encontrado.</p>';
-        return;
+        renderRooms(filtered);
       }
 
-      list.forEach(room => {
-        const wrap = document.createElement('div');
-        wrap.className = 'wrapper';
+      function renderRooms(list) {
+        const container = document.getElementById('roomsContainer');
+        container.innerHTML = '';
 
-        // Card principal
-        const card = document.createElement('figure');
-        card.className = 'card';
-        card.innerHTML = `
+        if (list.length === 0) {
+          container.innerHTML = '<p>Nenhum quarto encontrado.</p>';
+          return;
+        }
+
+        list.forEach(room => {
+          const wrap = document.createElement('div');
+          wrap.className = 'wrapper';
+
+          // Card principal
+          const card = document.createElement('figure');
+          card.className = 'card';
+          card.innerHTML = `
           <img src="./img/${room.image}" alt="Quarto ${room.type}" />
           <figcaption class="card__cap">
             <h2>Quarto ${room.id} – ${room.monster.charAt(0).toUpperCase() + room.monster.slice(1)}</h2>
@@ -268,10 +270,10 @@ $result = $conexao->query($sql);
           <button class="det__btn">Detalhes</button>
         `;
 
-  
-    const details = document.createElement('div');
-    details.className = 'card__details';
-    details.innerHTML = `
+
+          const details = document.createElement('div');
+          details.className = 'card__details';
+          details.innerHTML = `
     <p class="card__type" style="font-size: 35px;">${room.type.charAt(0).toUpperCase() + room.type.slice(1)}</p>
     <h6 class="card__price" style="font-size: 35px;">
         <sup style="font-size: 15px;">R$</sup>${room.price}<sub style="font-size: 15px;">/dia</sub>
@@ -283,24 +285,25 @@ $result = $conexao->query($sql);
     `;
 
 
-        wrap.appendChild(card);
-        wrap.appendChild(details);
-        container.appendChild(wrap);
+          wrap.appendChild(card);
+          wrap.appendChild(details);
+          container.appendChild(wrap);
 
-        // Eventos "Detalhes" e "Reservar agora"
-        card.querySelector('.det__btn').addEventListener('click', () => {
-          details.classList.add('open');
+          // Eventos "Detalhes" e "Reservar agora"
+          card.querySelector('.det__btn').addEventListener('click', () => {
+            details.classList.add('open');
+          });
+          details.querySelector('.buy__btn').addEventListener('click', () => {
+            details.classList.remove('open');
+          });
         });
-        details.querySelector('.buy__btn').addEventListener('click', () => {
-          details.classList.remove('open');
-        });
-      });
-    }
+      }
 
-    // Renderiza tudo na inicial
-    renderRooms(rooms);
-  </script>
+      // Renderiza tudo na inicial
+      renderRooms(rooms);
+    </script>
   </section>
-  
+
 </body>
+
 </html>

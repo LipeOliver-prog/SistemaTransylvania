@@ -115,7 +115,7 @@ if (isset($_POST['gerar_boleto'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerar Boleto</title>
-    <link rel="stylesheet" href="styleCSS/PAGAMENTOS.css">
+    <link rel="stylesheet" href="styleCSS/PAGAMENT.css">
 </head>
 <body>
     <header class="header">

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
 :root {
-  --gradiente-top: linear-gradient(to top, #410346, #000000);
+  --gradiente-top: linear-gradient(to top, #410346,#000, #000000);
   --gradiente-bottom: linear-gradient(to bottom, #410346, #000000);
   --dourado: #ffe270;
   --vermelho: #bd0000;
@@ -22,18 +22,24 @@
 html {
   font-size: 60%;
   overflow-x: hidden;
+  background-color: #000000;
 }
 
+.home-container {
+    background: url(../img/CasteloFundo.png);
+    height: 50vh;
+    background-position: center;
+    background-size: cover;
+}
 /* Barra de navegação */
 
 .header {
-  position: relative;
+  background-color: #000000;
+  position: block;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1rem 12% 1rem;
-  background: var(--gradiente-top);
-  backdrop-filter: blur(10px);
+  padding: 1rem 12% 1rem; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,18 +62,17 @@ html {
 
 .navbar a {
   font-size: 1.6rem;
+  font-weight: 700;
   color: var(--branco);
   margin: 2rem;
-  font-weight: 500;
   transition: 0.3s ease;
-  border-bottom: 3px solid var(--terceira-color);
   text-transform: capitalize;
 }
 
 .navbar a:hover,
 .navbar a.active {
-  color: #97519c;
-  border-bottom: 3px solid #97519c;
+  color: #ee00ff;
+  border-bottom: 1px solid #ee00ff;
 }
 
 .navbar-nav .navbar-item {
@@ -90,22 +95,6 @@ html {
   font-size: 1.5rem;
 }
 
-.btn {
-  display: inline-block;
-  padding: 1rem 2.8rem;
-  background-color: var(--terceira-color);
-  border-radius: 1.5rem;
-  font-size: 1.6rem;
-  color: var(--terceira-color);
-  border: 2px solid transparent;
-  letter-spacing: 0.1rem;
-  font-size: 600;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-}
-
 /* Logado */
 
 .bemVindo {
@@ -113,13 +102,13 @@ html {
 }
 
 .bemVindo u {
-  color: var(--vermelho);
+  color: #f00;
 }
 
 .bemVindo p {
   text-transform: uppercase;
   text-align: center;
-  color: var(--vermelho)
+  color: #f00
 }
 
 .buttonSair {
@@ -128,90 +117,124 @@ html {
 
 .btnSair {
   padding: 1rem;
-  border: 1px solid var(--vermelho);
-  color: var(--vermelho);
+  border: 2px solid #f00;
+  color: #f00;
   border-radius: 5px;
-  letter-spacing: 1.5px;
-}
-
-a {
-  text-decoration: none;
-  color: var(--segunda-color);
+  letter-spacing: 1px;
+  font-weight: 900;
 }
 
 .btnSair:hover {
   transform: scale(1.05);
 }
 
-/* Inicio */
 
+/* Estilo do Filtro */
 .home {
-  margin: 0 auto;
-  padding: 20px;
-  background: var(--gradiente-bottom);
+  background: #000;
+  color: var(--branco);
+  padding: 2rem 12%;
 
 }
 
-/* Estilo do título */
-h1 {
-  font-size: 2rem;
+.home h1 {
+  font-size: 3rem;
+  color: #ffffff;
   text-align: center;
-  color: #97519c;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
 }
 
-/* Estilo do filtro */
-.filter {
-  margin: 2rem;
-  padding: 20px;
-  background-color: linear-gradient(to bottom, #f8f9fa, #ff00ff);
-  border-radius: 20px;
-  border: 3px solid #97519c;
-}
-
-.filter h2 {
-  margin-bottom: 15px;
-  color: #f00;
-}
-
-/* Estilo dos campos de filtro */
-.Type {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 1.5rem;
-  color: #97519c;
-  font-weight: bold;
-}
-
-select {
+.filtro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 130px; /* Espaço para a barra de navegação fixa */
+  margin-bottom: 2rem;
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ced4da;
-  border-radius: 5px;
 }
 
-/* Estilo do botão de filtrar */
+.filtro-container {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  width: 100%;
+  order: -1; /* Garante que o h1 fique acima de tudo dentro do container */
+}
 
-.btn3 {
-  display: block; 
+.filter {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: flex-end;
+  justify-content: center;
+  transition: box-shadow 0.2s;
   margin: 0 auto;
-  background: var(--branco);
-  color: #000;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
 }
 
-.btn3:hover {
-  color: var(--vermelho);
+.filter label {
+  flex: 1 1 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3rem;
+  color: #ffffff;
+  font-weight: 600;
+  gap: 4px;
+}
+
+.filter select,
+.filter input[type="text"],
+.filter input[type="number"] {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1.5px solid #a200ad;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
+  margin-top: 2px;
+  transition: border 0.2s;
+}
+
+.filter select:focus,
+.filter input[type="text"]:focus,
+.filter input[type="number"]:focus {
+  border: 1.5px solid #ee00ff;
+  outline: none;
+}
+
+.filter .btn3{
+  margin: 0;
+  width: auto;
+  min-width: 110px;
+  align-self: stretch;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #a200ad 60%, #ee00ff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px #41034622;
+  transition: background 0.2s, color 0.2s, transform 0.1s;
+}
+
+.filter .btn3:hover {
+  background: linear-gradient(90deg, #ee00ff 60%, #a200ad 100%);
+  color: #fff;
+  transform: scale(1.04);
 }
 
 /* Estilo dos botões de cadastro */
+
 .buttonCadastro {
   text-align: center;
   margin: 10px 0;

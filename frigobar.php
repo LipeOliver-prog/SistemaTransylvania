@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['salvar_frigobar'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frigobar</title>
-    <link rel="stylesheet" href="styleCSS/FRIGOBAR.css">
+    <link rel="stylesheet" href="styleCSS/FRIGOBA.css">
 </head>
 
 <body>

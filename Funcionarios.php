@@ -23,21 +23,12 @@ $result = $conexao->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Funcionários</title>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-
-    <link rel="stylesheet" href="styleCSS/FUNCIONARIOS.css">
+    <link rel="stylesheet" href="styleCSS/FUNCIONARIO.css">
 
 </head>
 
 <body>
-
-
-
 
     <header class="header">
         <a href="Home.php" class="logo">

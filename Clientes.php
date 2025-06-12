@@ -29,7 +29,7 @@ $result = $conexao->query($sql);
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 
-    <link rel="stylesheet" href="styleCSS/CLIENTES.css">
+    <link rel="stylesheet" href="styleCSS/CLIENTE.css">
 </head>
 
 <body>

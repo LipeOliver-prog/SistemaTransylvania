@@ -1,13 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
 :root {
-  --primeira-color: #9b52bb ;
-  --segunda-color: #fcfbef ;
-  --terceira-color:#141f2b ;
-  --quarta-color:#6d6b7b ;
-  --quinta-color:#b6bfc2 ;
-  --branco: #ffffff ;
-  --test-color: #ff0000;
+  --gradiente-top: linear-gradient(to top, #410346,#000, #000000);
+  --gradiente-bottom: linear-gradient(to bottom, #410346, #000000);
+  --dourado: #ffe270;
+  --vermelho: #bd0000;
+  --branco: #ffffff;
 }
 
 * {
@@ -24,18 +22,24 @@
 html {
   font-size: 60%;
   overflow-x: hidden;
+  background-color: #000000;
 }
 
+.home-container {
+    background: url(../img/CasteloFundo.png);
+    height: 50vh;
+    background-position: center;
+    background-size: cover;
+}
 /* Barra de navegação */
 
 .header {
-  position: relative;
+  background-color: #000000;
+  position: block;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1rem 12% 1rem;
-  background: var(--branco);
-  backdrop-filter: blur(10px);
+  padding: 1rem 12% 1rem; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,18 +62,17 @@ html {
 
 .navbar a {
   font-size: 1.6rem;
-  color: var(--terceira-color);
+  font-weight: 700;
+  color: var(--branco);
   margin: 2rem;
-  font-weight: 500;
   transition: 0.3s ease;
-  border-bottom: 3px solid var(--terceira-color);
   text-transform: capitalize;
 }
 
 .navbar a:hover,
 .navbar a.active {
-  color: var(--primeira-color);
-  border-bottom: 3px solid var(--primeira-color);
+  color: #ee00ff;
+  border-bottom: 1px solid #ee00ff;
 }
 
 .navbar-nav .navbar-item {
@@ -92,36 +95,20 @@ html {
   font-size: 1.5rem;
 }
 
-.btn {
-  display: inline-block;
-  padding: 1rem 2.8rem;
-  background-color: var(--terceira-color);
-  border-radius: 1.5rem;
-  font-size: 1.6rem;
-  color: var(--terceira-color);
-  border: 2px solid transparent;
-  letter-spacing: 0.1rem;
-  font-size: 600;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-}
-
 /* Logado */
 
 .bemVindo {
-  font-weight: 1000;
+  font-size: 1.5rem;
 }
 
 .bemVindo u {
-  color: var(--primeira-color);
+  color: #f00;
 }
 
 .bemVindo p {
   text-transform: uppercase;
   text-align: center;
-  color: var(--terceira-color);
+  color: #f00
 }
 
 .buttonSair {
@@ -129,15 +116,12 @@ html {
 }
 
 .btnSair {
-  background-color: var(--terceira-color);
   padding: 1rem;
+  border: 2px solid #f00;
+  color: #f00;
   border-radius: 5px;
-  letter-spacing: 1.5px;
-}
-
-a {
-  text-decoration: none;
-  color: var(--segunda-color);
+  letter-spacing: 1px;
+  font-weight: 900;
 }
 
 .btnSair:hover {
@@ -155,7 +139,7 @@ form {
   max-width: 600px;
   margin: 20px auto; 
   padding: 20px;
-  background-color: #fff; /* Cor de fundo branca */
+  background-color: #c9c9c9; /* Cor de fundo branca */
   border-radius: 8px; /* Bordas arredondadas */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para profundidade */
 }
@@ -178,8 +162,8 @@ form input[type="number"] {
 }
 
 form button {
-  background-color: var(--terceira-color); 
-  color: var(--segunda-color); 
+  background-color: #ee00ff; 
+  color: white; 
   border: none; 
   padding: 10px 15px; 
   border-radius: 5px; 
@@ -207,20 +191,20 @@ form p[style*='color:green'] {
 }
 
 .button-voltar {
-  text-align: center; 
-  margin-top: 20px; 
+  text-align: center;
+  margin-top: 20px;
 }
 
-.button-voltar a {
-  display: inline-block; 
-  padding: 10px 20px; 
-  background-color: var(--primeira-color); 
-  color: white; 
-  text-decoration: none; 
-  border-radius: 5px; 
-  transition: background-color 0.3s; 
+.btn-voltar {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ee00ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
-.button-voltar a:hover {
-  background-color: var(--primeira-color); 
+.btn-voltar:hover {
+  background-color: var(--primeira-color);
 }
